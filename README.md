@@ -28,7 +28,7 @@
 
 ### **_Description_**
 
-#### Dinker is a Tinder inspired application meant to connect developers with other devs who want to collaborate on projects. Users can create accounts that showcase their skills, past projects, social links, and make posts inquireing help for projects. An unique feature of Dinker is the annomosity and silliness of our profile picture avatars. Dinker is not made to be a dating app, or a place to superfially judge others' looks, but instead a place where devs can grow their portfolios while also networking with one another! The matching page is a tinder-like display with profile pictures displaying on the screen and users must swipe right to select a match or swipe left to pass. If a match is made, both users get access to each other's contact information, which they can use to start colaborating!
+#### Dinker is a Tinder inspired application meant to connect developers with other devs who want to collaborate on projects. Users can create accounts that showcase their skills, past projects, social links, and make posts inquiring help for projects. An unique feature of Dinker is the annomosity and silliness of our profile picture avatars. Dinker is not made to be a dating app, or a place to superfially judge others' looks, but instead a place where devs can grow their portfolios while also networking with one another! The matching page is a tinder-like display with profile pictures displaying on the screen and users must swipe right to select a match or swipe left to pass. If a match is made, both users get access to each other's contact information, which they can use to start colaborating!
 
 ---
 
