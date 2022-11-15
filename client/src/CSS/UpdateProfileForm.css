@@ -1,0 +1,35 @@
+.updatePage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav {
+  background-color: black;
+  color: white;
+  width: 33vw;
+  height: 100vh;
+}
+
+.update {
+  width: 66vw;
+}
+
+.updateGrid {
+  height: 100vh;
+  display: grid;
+  align-items:center;
+}
+
+.updateCard {
+  grid-column: 1;
+  grid-row: 1;
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  width: 350px;
+  height: 500px;
+  color: white;
+  border-radius: 20px;
+}
