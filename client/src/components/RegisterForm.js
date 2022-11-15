@@ -1,20 +1,79 @@
-import axios from 'axios'
+import { useState } from 'react'
+import { RegisterUser } from '../services/Auth'
 
 const RegisterForm = () => {
-  const createUser = async () => {
-    await axios.post('http://localhost:3000/api/auth/register')
+  let initialState = {
+    name: '',
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  }
+  const [newUser, setNewUser] = useState(initialState)
+
+  const handleChange = (e) => {
+    setNewUser({ ...newUser, [e.target.name]: e.target.value })
+  }
+
+  const createUser = async (e) => {
+    e.preventDefault()
+    await RegisterUser({
+      name: newUser.name,
+      username: newUser.username,
+      email: newUser.email,
+      password: newUser.password
+    })
+    setNewUser(initialState)
   }
 
   return (
     <div className="form">
       <form onSubmit={createUser}>
-        <input placeholder="Full Name" />
-        <input placeholder="Username" />
-        <input placeholder="Email" />
-        <input placeholder="Password" />
-        <input placeholder="Confirm Password" />
-        <button>Create Account</button>
+        <input
+          placeholder="Full Name"
+          onChange={handleChange}
+          value={newUser.name}
+          name="name"
+        />
+        <input
+          placeholder="Username"
+          onChange={handleChange}
+          value={newUser.username}
+          name="username"
+        />
+        <input
+          placeholder="Email"
+          onChange={handleChange}
+          value={newUser.email}
+          name="email"
+        />
+        <input
+          placeholder="Password"
+          onChange={handleChange}
+          value={newUser.password}
+          name="password"
+        />
+        <input
+          placeholder="Confirm Password"
+          onChange={handleChange}
+          value={newUser.confirmPassword}
+          name="confirmPassword"
+        />
+        <button
+          disabled={
+            (!newUser.email,
+            !newUser.name,
+            !newUser.username,
+            !newUser.password,
+            !newUser.confirmPassword) ||
+            newUser.confirmPassword !== newUser.password
+          }
+        >
+          Create Account
+        </button>
       </form>
+      <h3>have an account already?</h3>
+      <button>Login</button>
     </div>
   )
 }

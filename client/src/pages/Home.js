@@ -1,3 +1,4 @@
+import LoginForm from '../components/LoginForm'
 import LoginNav from '../components/LoginNav'
 import RegisterForm from '../components/RegisterForm'
 import '../CSS/Home.css'
@@ -9,6 +10,7 @@ const Home = () => {
         <LoginNav />
       </div>
       <div className="form-holder">
+        <LoginForm />
         <RegisterForm />
       </div>
     </div>
