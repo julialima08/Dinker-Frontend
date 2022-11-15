@@ -15,7 +15,6 @@ const ProfileCard = (props) => {
   const getProfile = async () => {
     const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
     setUser(response.data)
-    console.log(response.data)
   }
 
   useEffect(() => {
