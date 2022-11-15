@@ -1,16 +1,5 @@
 const PostCard = (props) => {
   const postCardStyle = {
-    // border: '3px solid green',
-    // width: '150px',
-    // height: '120px',
-    // display: 'block',
-    // padding: '30px 0',
-    // paddingBottom: '20px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: '20px',
-    marginBottom: '20px',
-    //////////////////////////////////
     display: 'inlineBlock',
     // fontFamily: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
     fontSize: '12px',
@@ -21,7 +10,7 @@ const PostCard = (props) => {
     borderStyle: 'solid',
     borderWidth: '1px',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.15)',
-    margin: '10px 5px',
+    margin: '20px auto 20px auto',
     padding: '0 16px 16px 16px',
     maxWidth: '468px',
     textAlign: 'left'
