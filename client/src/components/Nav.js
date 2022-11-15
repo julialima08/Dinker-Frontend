@@ -12,17 +12,17 @@ const Nav = () => {
 
   const [matches, setMatches] = useState([])
 
-  const getUserInfo = async () => {
-    const response = await axios.get(`${BASE_URL}/users/${userId}`)
+  // const getUserInfo = async () => {
+  //   const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
 
-    setUserInfo(response.data.user)
-  }
+  //   setUserInfo(response.data.user)
+  // }
 
-  const getMatches = async () => {
-    const response = await axios.get(`${BASE_URL}/users/${userId}/matches`)
+  // const getMatches = async () => {
+  //   const response = await axios.get(`${BASE_URL}/api/users/${userId}/matches`)
 
-    setMatches(response.data.user.matches)
-  }
+  //   setMatches(response.data.user.matches)
+  // }
 
   const viewMatch = (id) => {
     navigate()
@@ -63,6 +63,12 @@ const Nav = () => {
                 alt=""
                 onClick={() => navigate()}
               ></img>
+              <img
+                className="swipeButton"
+                src=""
+                alt=""
+                onClick={() => navigate()}
+              ></img>
             </div>
           </div>
           <div className="matches">
@@ -79,7 +85,18 @@ const Nav = () => {
           </div>
         </div>
       ) : (
-        <div>Nav Bar Here</div>
+        <div className="header">
+          <div className="userInfo">
+            <img className="userIcon" src=""></img>
+            <h1>User Name</h1>
+            <div className="userInfoButtons">
+              <img className="logoutButton" src="" alt=""></img>
+              <img className="postsButton" src="" alt=""></img>
+              <img className="swipeButton" src="" alt=""></img>
+            </div>
+          </div>
+          <div className="matches">matches</div>
+        </div>
       )}
     </>
   )

@@ -1,7 +1,7 @@
 const ProfileCard = (props) => {
-  const swipeRight = () => {}
+  // const swipeRight = () => {}
 
-  const swipeLeft = () => {}
+  // const swipeLeft = () => {}
 
   return (
     <div className="cardDiv">
@@ -9,28 +9,28 @@ const ProfileCard = (props) => {
         <div className="imageWrapper">
           <img
             className="userAvatar"
-            src={props.avatar}
-            alt={props.userName}
+            src={props.user.avatar}
+            alt={props.user.username}
           ></img>
         </div>
         <div className="infoWrapper">
-          <h1>{props.userName}</h1>
-          <div className="skills">{props.skills.map()}</div>
+          <h1>{props.user.username}</h1>
+          <div className="skills">{props.user.skills}</div>
         </div>
       </div>
-      <img src="" alt="">
-        //onClick to pull up cardDivInfo???
+      <img className="moreInfo" src="" alt="">
+        {/* //onClick to pull up cardDivInfo??? */}
       </img>
       <div className="cardDivInfo">
-        <div className="userProjects">{props.projects.map()}</div>
-        <div className="userSocial">{props.socialLinks.map()}</div>
+        <div className="userProjects">{props.user.projects}</div>
+        <div className="userSocial">{props.user.socialLinks}</div>
       </div>
       <div className="swipeButtons">
-        <img src="" alt="">
-          //onClick for swipeRight
+        <img className="swipeRight" src="" alt="">
+          {/* //onClick for swipeRight */}
         </img>
-        <img src="" alt="">
-          //onClick for swipeLeft
+        <img className="swipeLeft" src="" alt="">
+          {/* //onClick for swipeLeft */}
         </img>
       </div>
     </div>
