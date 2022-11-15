@@ -1,0 +1,11 @@
+body.active-popUp {
+  overflow-y:hidden;
+}
+
+.form-holder {
+  position: fixed;
+}
+
+.form {
+  position: absolute;
+}
