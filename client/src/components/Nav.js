@@ -2,21 +2,25 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import MatchCard from '../components/MatchCard'
+import Client from '../services/api'
+// import { SignInUser } from '../services/Auth'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 
-const Nav = () => {
-  let { userId } = useParams()
+const Nav = ({ setUserId }) => {
+  let userId
 
   const [userInfo, setUserInfo] = useState(null)
 
   const [matches, setMatches] = useState([])
 
-  // const getUserInfo = async () => {
-  //   const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
-
-  //   setUserInfo(response.data.user)
-  // }
+  const getUserInfo = async (data) => {
+    let userId = localStorage.getItem('id')
+    console.log(userId)
+    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
+    setUserInfo(response.data)
+    console.log(response.data)
+  }
 
   // const getMatches = async () => {
   //   const response = await axios.get(`${BASE_URL}/api/users/${userId}/matches`)
@@ -32,11 +36,11 @@ const Nav = () => {
 
   useEffect(() => {
     getUserInfo()
-  }, [userId])
+  }, [])
 
-  useEffect(() => {
-    getMatches()
-  }, [matches])
+  // useEffect(() => {
+  //   getMatches()
+  // }, [matches])
 
   return (
     <>
@@ -46,10 +50,10 @@ const Nav = () => {
             <img
               className="userIcon"
               src={userInfo.avatar}
-              alt={userInfo.userName}
+              alt={userInfo.username}
               // onClick={() => navigate()}
             ></img>
-            <h1>{userInfo.userName}</h1>
+            <h1>{userInfo.name}</h1>
             <div className="userInfoButtons">
               <img
                 className="logoutButton"
