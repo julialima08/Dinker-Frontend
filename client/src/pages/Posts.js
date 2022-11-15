@@ -17,7 +17,6 @@ const Posts = (props) => {
   return (
     <div className="Posts">
       <h1>Posts</h1>
-      <PostCard Posts={Posts} />
       {Posts.map((Posts) => (
         <PostCard Posts={Posts} />
       ))}

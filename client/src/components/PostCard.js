@@ -13,7 +13,7 @@ const PostCard = (props) => {
     padding: '30px 0',
     margin: 'auto'
   }
-  console.log(props.Posts[0])
+  // console.log(props.Posts[0])
   return (
     <div className="PostCard" style={postCardStyle}>
       <h1>{`${props.Posts.title}`}</h1>
