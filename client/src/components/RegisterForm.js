@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { RegisterUser } from '../services/Auth'
 
-const RegisterForm = () => {
+const RegisterForm = ({ setIsVisible }) => {
   let initialState = {
     name: '',
     username: '',
@@ -24,11 +24,12 @@ const RegisterForm = () => {
       password: newUser.password
     })
     setNewUser(initialState)
+    setIsVisible(true)
   }
 
   return (
-    <div className="form">
-      <form onSubmit={createUser}>
+    <div>
+      <form className="form" onSubmit={createUser}>
         <input
           placeholder="Full Name"
           onChange={handleChange}
@@ -72,8 +73,6 @@ const RegisterForm = () => {
           Create Account
         </button>
       </form>
-      <h3>have an account already?</h3>
-      <button>Login</button>
     </div>
   )
 }

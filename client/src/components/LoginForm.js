@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-const LoginForm = ({ setUser }, props) => {
+const LoginForm = ({ setUser }) => {
   const initialState = { email: '', password: '' }
   const [formValues, setFormValues] = useState(initialState)
-  const [visibility, setVisibility] = useState(true)
+
   let navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -20,19 +20,9 @@ const LoginForm = ({ setUser }, props) => {
     navigate('/main')
   }
 
-  const handleClick = () => {
-    setVisibility(!visibility)
-  }
-
-  if (visibility) {
-    document.body.classList.add('visible')
-  } else {
-    document.body.classList.remove('visible')
-  }
-
   return (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
         <input
           placeholder="Email"
           onChange={handleChange}
@@ -45,13 +35,10 @@ const LoginForm = ({ setUser }, props) => {
           value={formValues.password}
           name="password"
         />
-        <input placeholder="Confirm Password" />
         <button disabled={!formValues.email || !formValues.password}>
           Login
         </button>
       </form>
-      <h3>Don't have an account already?</h3>
-      <button onClick={handleClick}>Create Account</button>
     </div>
   )
 }

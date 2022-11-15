@@ -4,19 +4,31 @@
 }
 
 .nav-holder {
-  height: 20vh;
+  height: 10vh;
 }
 
 .form-holder {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 90vh;
+  display: grid;
+  align-items:center;
+}
+
+.login-form, .register-form{
+grid-column: 1;
+grid-row: 1;
+place-self: center;
+display: flex;
+flex-direction: column;
+background-color: white;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  width: 300px;
+}
+.invisible {
+  visibility: hidden;
 }
 
 .login-nav {
