@@ -43,7 +43,7 @@ const ProfileCard = (props) => {
         <div className="userProjects">{props.user.projects}</div>
         <div className="userSocial">{props.user.socialLinks}</div>
       </div>
-      {userId === user.id ? (
+      {props.user.id === user.id ? (
         <div className="swipeButtons">Something</div>
       ) : (
         <div className="swipeButtons">
