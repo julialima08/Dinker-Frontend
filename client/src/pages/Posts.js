@@ -9,17 +9,24 @@ const Posts = (props) => {
   useEffect(() => {
     const getPosts = async () => {
       const res = await axios.get(`${BASE_URL}/api/posts`)
-      console.log(res.data)
       setPosts(res.data)
     }
     getPosts()
   }, [])
+
+  const postMapStyle = {
+    display: 'flex',
+    flexWrap: 'wrap'
+  }
+
   return (
     <div className="Posts">
       <h1>Posts</h1>
-      {Posts.map((Posts) => (
-        <PostCard Posts={Posts} />
-      ))}
+      <div className="postMap" style={postMapStyle}>
+        {Posts.map((Posts) => (
+          <PostCard key={Posts.id} Posts={Posts} />
+        ))}
+      </div>
     </div>
   )
 }

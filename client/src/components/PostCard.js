@@ -11,6 +11,7 @@ const PostCard = (props) => {
     height: '120px',
     display: 'block',
     padding: '30px 0',
+    paddingBottom: '100px',
     margin: 'auto'
   }
   // console.log(props.Posts[0])
