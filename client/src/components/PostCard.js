@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
-import { BASE_URL } from '../globals'
+// import { useEffect, useState } from 'react'
+// import { useParams } from 'react-router-dom'
 
 const PostCard = (props) => {
-  const [post, setPost] = useState({})
-  const { id } = useParams()
+  // const [Posts, setPost] = useState({})
+  // const { id } = useParams()
 
   const postCardStyle = {
     border: '3px solid green',
@@ -15,11 +13,12 @@ const PostCard = (props) => {
     padding: '30px 0',
     margin: 'auto'
   }
+  console.log(props.Posts[0])
   return (
     <div className="PostCard" style={postCardStyle}>
-      {/* <h1>{`${props.post.title}`}</h1>
-      <p>{`${props.post.body}`}</p>
-      <p>{`${props.post.skills}`}</p> */}
+      <h1>{`${props.Posts.title}`}</h1>
+      <p>{`${props.Posts.body}`}</p>
+      <p>{`${props.Posts.skills}`}</p>
     </div>
   )
 }

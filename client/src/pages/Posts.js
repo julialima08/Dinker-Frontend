@@ -17,7 +17,10 @@ const Posts = (props) => {
   return (
     <div className="Posts">
       <h1>Posts</h1>
-      <PostCard />
+      <PostCard Posts={Posts} />
+      {Posts.map((Posts) => (
+        <PostCard Posts={Posts} />
+      ))}
     </div>
   )
 }
