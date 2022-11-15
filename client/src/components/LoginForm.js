@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-const LoginForm = ({ setUser }) => {
+const LoginForm = ({ setUser }, props) => {
   const initialState = { email: '', password: '' }
   const [formValues, setFormValues] = useState(initialState)
+  const [visibility, setVisibility] = useState(true)
   let navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -17,6 +18,16 @@ const LoginForm = ({ setUser }) => {
     setUser(payload)
     setFormValues(initialState)
     navigate('/main')
+  }
+
+  const handleClick = () => {
+    setVisibility(!visibility)
+  }
+
+  if (visibility) {
+    document.body.classList.add('visible')
+  } else {
+    document.body.classList.remove('visible')
   }
 
   return (
@@ -40,7 +51,7 @@ const LoginForm = ({ setUser }) => {
         </button>
       </form>
       <h3>Don't have an account already?</h3>
-      <button>Create Account</button>
+      <button onClick={handleClick}>Create Account</button>
     </div>
   )
 }
