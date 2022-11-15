@@ -1,0 +1,16 @@
+.swipePage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav {
+  background-color: black;
+  color: white;
+  width: 33vw;
+  height: 100vh;
+}
+
+.swipe {
+  width: 66vw;
+}

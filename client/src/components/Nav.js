@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import MatchCard from './components/MatchCard'
+import { useParams, useNavigate } from 'react-router-dom'
+import MatchCard from '../components/MatchCard'
 import axios from 'axios'
+import { BASE_URL } from '../globals'
 
 const Nav = () => {
   let { userId } = useParams()
@@ -11,21 +12,17 @@ const Nav = () => {
 
   const [matches, setMatches] = useState([])
 
-  const getUserInfo = async () => {
-    const response = await axios.get(
-      `http://localhost:3001/api/users/${userId}`
-    )
+  // const getUserInfo = async () => {
+  //   const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
 
-    setUserInfo(response.data.user)
-  }
+  //   setUserInfo(response.data.user)
+  // }
 
-  const getMatches = async () => {
-    const response = await axios.get(
-      `http://localhost:3001/api/users/${userId}/matches`
-    )
+  // const getMatches = async () => {
+  //   const response = await axios.get(`${BASE_URL}/api/users/${userId}/matches`)
 
-    setMatches(response.data.user.matches)
-  }
+  //   setMatches(response.data.user.matches)
+  // }
 
   const viewMatch = (id) => {
     navigate()
@@ -42,32 +39,66 @@ const Nav = () => {
   }, [matches])
 
   return (
-    <div className="header">
-      <div className="userInfo">
-        <img
-          className="userIcon"
-          src={userInfo.avatar}
-          alt={userInfo.userName}
-          // onClick={() => navigate()}
-        ></img>
-        <h1>{userInfo.userName}</h1>
-        <div className="userInfoButtons">
-          <img className="logoutButton" src="" onClick={() => navigate()}></img>
-          <img className="postsButton" src="" onClick={() => navigate()}></img>
+    <>
+      {userInfo ? (
+        <div className="header">
+          <div className="userInfo">
+            <img
+              className="userIcon"
+              src={userInfo.avatar}
+              alt={userInfo.userName}
+              // onClick={() => navigate()}
+            ></img>
+            <h1>{userInfo.userName}</h1>
+            <div className="userInfoButtons">
+              <img
+                className="logoutButton"
+                src=""
+                alt=""
+                onClick={() => navigate()}
+              ></img>
+              <img
+                className="postsButton"
+                src=""
+                alt=""
+                onClick={() => navigate()}
+              ></img>
+              <img
+                className="swipeButton"
+                src=""
+                alt=""
+                onClick={() => navigate()}
+              ></img>
+            </div>
+          </div>
+          <div className="matches">
+            {matches.map((match) => (
+              <MatchCard
+                id={match.id}
+                key={match.id}
+                image={match.avatar}
+                name={match.name}
+                username={match.userName}
+                onClick={viewMatch}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="matches">
-        {matches.map((match) => (
-          <MatchCard
-            id={match.id}
-            key={match.id}
-            image={match.avatar}
-            name={match.name}
-            onClick={viewMatch}
-          />
-        ))}
-      </div>
-    </div>
+      ) : (
+        <div className="header">
+          <div className="userInfo">
+            <img className="userIcon" src=""></img>
+            <h1>User Name</h1>
+            <div className="userInfoButtons">
+              <img className="logoutButton" src="" alt=""></img>
+              <img className="postsButton" src="" alt=""></img>
+              <img className="swipeButton" src="" alt=""></img>
+            </div>
+          </div>
+          <div className="matches">matches</div>
+        </div>
+      )}
+    </>
   )
 }
 
