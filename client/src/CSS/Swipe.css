@@ -14,3 +14,22 @@
 .swipe {
   width: 66vw;
 }
+
+.swipeGrid {
+  height: 100vh;
+  display: grid;
+  align-items:center;
+}
+
+.swipeCard {
+  grid-column: 1;
+  grid-row: 1;
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  width: 350px;
+  height: 500px;
+  color: white;
+  border-radius: 20px;
+}
