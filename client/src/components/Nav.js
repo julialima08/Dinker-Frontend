@@ -19,7 +19,7 @@ const Nav = ({ setUserId }) => {
     console.log(userId)
     const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
     setUserInfo(response.data)
-    console.log(response.data)
+    // console.log(response.data)
   }
 
   // const getMatches = async () => {
@@ -47,31 +47,36 @@ const Nav = ({ setUserId }) => {
       {userInfo ? (
         <div className="header">
           <div className="userInfo">
-            <img
-              className="userIcon"
-              src={userInfo.avatar}
-              alt={userInfo.username}
-              // onClick={() => navigate()}
-            ></img>
-            <h1>{userInfo.name}</h1>
+            <div
+              className="userIconAndName"
+              onClick={() => navigate(`/profile`)}
+            >
+              <img
+                className="userIcon"
+                src={userInfo.avatar}
+                alt={userInfo.username}
+                // onClick={() => navigate()}
+              ></img>
+              <h1>{userInfo.name}</h1>
+            </div>
             <div className="userInfoButtons">
               <img
                 className="logoutButton"
-                src=""
-                alt=""
+                src="https://i.imgur.com/7RvwMJZ.png"
+                alt="logout"
                 onClick={() => navigate()}
               ></img>
               <img
                 className="postsButton"
-                src=""
-                alt=""
-                onClick={() => navigate()}
+                src="https://i.imgur.com/aWrwP5x.png"
+                alt="posts"
+                onClick={() => navigate(`/post`)}
               ></img>
               <img
                 className="swipeButton"
-                src=""
-                alt=""
-                onClick={() => navigate()}
+                src="https://i.imgur.com/MBF6BjS.png"
+                alt="swipe"
+                onClick={() => navigate(`/main`)}
               ></img>
             </div>
           </div>
@@ -88,20 +93,7 @@ const Nav = ({ setUserId }) => {
             ))}
           </div>
         </div>
-      ) : (
-        <div className="header">
-          <div className="userInfo">
-            <img className="userIcon" src=""></img>
-            <h1>User Name</h1>
-            <div className="userInfoButtons">
-              <img className="logoutButton" src="" alt=""></img>
-              <img className="postsButton" src="" alt=""></img>
-              <img className="swipeButton" src="" alt=""></img>
-            </div>
-          </div>
-          <div className="matches">matches</div>
-        </div>
-      )}
+      ) : null}
     </>
   )
 }
