@@ -15,8 +15,8 @@ const Posts = (props) => {
   }, [])
 
   const postMapStyle = {
-    display: 'flex',
-    flexWrap: 'wrap'
+    // display: 'flex',
+    // flexWrap: 'wrap'
   }
 
   return (
