@@ -1,11 +1,10 @@
 // import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import MatchCard from '../components/MatchCard'
-import Client from '../services/api'
-// import { SignInUser } from '../services/Auth'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import '../CSS/Nav.css'
 
 const Nav = ({ setUserId }) => {
   let userId
@@ -57,7 +56,7 @@ const Nav = ({ setUserId }) => {
                 alt={userInfo.username}
                 // onClick={() => navigate()}
               ></img>
-              <h1>{userInfo.name}</h1>
+              <h1 className="userName">{userInfo.name}</h1>
             </div>
             <div className="userInfoButtons">
               <img

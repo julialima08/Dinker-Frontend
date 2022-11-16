@@ -36,7 +36,7 @@ const ProfileCard = (props) => {
           <div className="skills">{props.user.skills}</div>
         </div>
       </div>
-      <img className="moreInfo" src="" alt="">
+      <img className="moreInfo" src="https://i.imgur.com/71LLr11.png" alt="">
         {/* //onClick to pull up cardDivInfo??? */}
       </img>
       <div className="cardDivInfo">
@@ -47,10 +47,18 @@ const ProfileCard = (props) => {
         <div className="swipeButtons">Something</div>
       ) : (
         <div className="swipeButtons">
-          <img className="swipeRight" src="" alt="">
+          <img
+            className="swipeRight"
+            src="https://i.imgur.com/OgR2xvL.png"
+            alt=""
+          >
             {/* //onClick for swipeRight */}
           </img>
-          <img className="swipeLeft" src="" alt="">
+          <img
+            className="swipeLeft"
+            src="https://i.imgur.com/TwVQBFx.png"
+            alt=""
+          >
             {/* //onClick for swipeLeft */}
           </img>
         </div>
