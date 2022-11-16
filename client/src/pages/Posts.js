@@ -3,16 +3,11 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import Nav from '../components/Nav'
-import CreatePostForm from '../components/CreatePostForm'
+import { Link } from 'react-router-dom'
 
 const Posts = (props) => {
   const [Posts, setPosts] = useState([])
-  const [addedPost, setAddedPost] = useState(false)
 
-  // reloads post feed after user submits a new post
-  const updatePostsFeed = () => {
-    setAddedPost(!addedPost)
-  }
   useEffect(() => {
     const getPosts = async () => {
       const res = await axios.get(`${BASE_URL}/api/posts`)
@@ -20,15 +15,23 @@ const Posts = (props) => {
     }
     getPosts()
   }, [])
-
   const postNavStyleChild = {
     position: 'fixed'
   }
   const postMapStyleChild = {}
+  const addPost = {
+    width: '50%',
+    float: 'Right'
+  }
+
   const postPageStyle = {}
+  // console.log(Posts[1].creatorId)
   console.log(Posts)
   return (
     <div className="PostsPage" style={postPageStyle}>
+      <div style={addPost}>
+        <Link to="/createpost">Add Post</Link>
+      </div>
       <div className="nav" style={postNavStyleChild}>
         <Nav />
       </div>
@@ -38,12 +41,6 @@ const Posts = (props) => {
             <PostCard Posts={Posts} key={Posts.id} />
           </div>
         ))}
-      </div>
-      <div>
-        <CreatePostForm
-          creatorId={Posts.creatorId}
-          updatePosts={updatePostsFeed}
-        />
       </div>
     </div>
   )
