@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import Nav from '../components/Nav'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import CreatePostForm from '../components/CreatePostForm'
 const Posts = (props) => {
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
 
   const [Posts, setPosts] = useState([])
 
@@ -38,9 +38,13 @@ const Posts = (props) => {
     width: '67vw',
     float: 'right'
   }
+  // const postPageStyle = {
+  //   backgroundColor: "#F1F2F5"
+  // }
   // console.log(Posts[1].creatorId)
-  console.log(Posts)
+  // console.log(Posts)
   return (
+    // style={postPageStyle}
     <div className="PostsPage">
       <div className="nav" style={postNavStyle}>
         <Nav />
