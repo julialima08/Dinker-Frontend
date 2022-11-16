@@ -20,9 +20,12 @@ const CreatePostForm = () => {
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
+  const postformheader = {
+    margin: '0'
+  }
   return (
     <div>
-      <h2>Submit A Post!</h2>
+      <h2 style={postformheader}>Submit A Post!</h2>
       <form onSubmit={handleSubmit}>
         <input
           id="title"
