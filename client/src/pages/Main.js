@@ -4,8 +4,7 @@ import '../CSS/Swipe.css'
 import { BASE_URL } from '../globals'
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import axios from 'axios'
-import SwipeCard from '../swipeAnimation'
-// import SwipeCard from '../swipeAnimationDetails'
+import SwipeCard from '../animation code/swipeAnimation'
 
 const Main = () => {
   const [users, setUsers] = useState([])
@@ -93,24 +92,21 @@ const Main = () => {
           ))}
         </div>
         <div className="buttons">
-          <button
-            style={{ backgroundColor: !canSwipe && '#c3c4d3' }}
-            onClick={() => swipe('left')}
-          >
-            Swipe left!
-          </button>
-          <button
-            style={{ backgroundColor: !canGoBack && '#c3c4d3' }}
-            onClick={() => goBack()}
-          >
-            Undo swipe!
-          </button>
-          <button
-            style={{ backgroundColor: !canSwipe && '#c3c4d3' }}
-            onClick={() => swipe('right')}
-          >
-            Swipe right!
-          </button>
+          <img
+            className="swipeLeft"
+            src="https://i.imgur.com/TwVQBFx.png"
+            alt=""
+          />
+          <img
+            className="moreInfo"
+            src="https://i.imgur.com/71LLr11.png"
+            alt=""
+          ></img>
+          <img
+            className="swipeRight"
+            src="https://i.imgur.com/OgR2xvL.png"
+            alt=""
+          />
         </div>
       </div>
     </div>
