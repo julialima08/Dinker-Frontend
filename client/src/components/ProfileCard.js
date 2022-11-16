@@ -3,7 +3,7 @@ import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const ProfileCard = (props) => {
+const ProfileCard = (props, { swipeRight }) => {
   const [user, setUser] = useState([])
 
   let userId = localStorage.getItem('id')
@@ -44,19 +44,22 @@ const ProfileCard = (props) => {
       ) : (
         <div className="swipeButtons">
           <img
-            className="swipeRight"
-            src="https://i.imgur.com/OgR2xvL.png"
-            alt=""
-          >
-            {/* //onClick for swipeRight */}
-          </img>
-          <img
             className="swipeLeft"
             src="https://i.imgur.com/TwVQBFx.png"
             alt=""
-          >
-            {/* //onClick for swipeLeft */}
-          </img>
+            // onClick={swipeLeft}
+          />
+          <img
+            className="moreInfo"
+            src="https://i.imgur.com/71LLr11.png"
+            alt=""
+          ></img>
+          <img
+            className="swipeRight"
+            src="https://i.imgur.com/OgR2xvL.png"
+            alt=""
+            onClick={props.swipeRight}
+          />
         </div>
       )}
     </div>
