@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import MatchCard from '../components/MatchCard'
+import Match from '../pages/Match'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import '../CSS/Nav.css'
@@ -80,16 +80,7 @@ const Nav = ({ setUserId }) => {
             </div>
           </div>
           <div className="matches">
-            {matches.map((match) => (
-              <MatchCard
-                id={match.id}
-                key={match.id}
-                image={match.avatar}
-                name={match.name}
-                username={match.userName}
-                onClick={viewMatch}
-              />
-            ))}
+            <Match />
           </div>
         </div>
       ) : null}
