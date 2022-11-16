@@ -1,10 +1,24 @@
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+// import { useNavigate } from 'react-router-dom'
+let userId = localStorage.getItem('id')
 
 const CreatePostForm = () => {
-  const navigate = useNavigate()
+  const [userInfo, setUserInfo] = useState(null)
+  const [userAvatar, setUserAvatar] = useState(null)
+
+  const getUserInfo = async (data) => {
+    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
+    setUserInfo(response.data.name)
+    setUserAvatar(response.data.avatar)
+  }
+  useEffect(() => {
+    getUserInfo()
+  }, [])
+
+  // console.log(userInfo)
+
   const initialState = {
     title: '',
     body: '',
@@ -20,9 +34,17 @@ const CreatePostForm = () => {
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
+  const postformheader = {}
+  const postformheadertext = {
+    backgroundColor: 'red'
+  }
+
   return (
     <div>
-      <h2>Submit A Post!</h2>
+      <h2 style={postformheader}>
+        <img src={userAvatar} alt="no avatar"></img>
+        <div style={postformheadertext}>What's on your mind, {userInfo} ?</div>
+      </h2>
       <form onSubmit={handleSubmit}>
         <input
           id="title"
@@ -46,7 +68,7 @@ const CreatePostForm = () => {
           onChange={handleChange}
         />
         <button type="submit">Submit New Post!</button>
-        <button onClick={() => navigate('/post')}>Return to posts list</button>
+        {/* <button onClick={() => navigate('/post')}>Return to posts list</button> */}
       </form>
     </div>
   )
