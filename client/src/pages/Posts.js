@@ -3,13 +3,9 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import Nav from '../components/Nav'
-// import { useNavigate } from 'react-router-dom'
 import CreatePostForm from '../components/CreatePostForm'
 const Posts = (props) => {
-  // let navigate = useNavigate()
-
   const [Posts, setPosts] = useState([])
-
   useEffect(() => {
     const getPosts = async () => {
       const res = await axios.get(`${BASE_URL}/api/posts`)
@@ -28,9 +24,20 @@ const Posts = (props) => {
     display: 'none'
   }
   const addPost = {
-    marginTop: '0',
-    width: '67vw',
-    float: 'right'
+    display: 'inlineBlock',
+    // fontFamily: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+    fontSize: '12px',
+    fontWeight: 'bold',
+    lineHeight: '16px',
+    borderColor: '#eee #ddd #bbb',
+    borderRadius: '5px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.15)',
+    margin: '0px auto 20px auto',
+    padding: '0 16px 16px 16px',
+    maxWidth: '468px',
+    textAlign: 'left'
   }
 
   const postgridstyle = {
@@ -38,28 +45,17 @@ const Posts = (props) => {
     width: '67vw',
     float: 'right'
   }
-  // const postPageStyle = {
-  //   backgroundColor: "#F1F2F5"
-  // }
-  // console.log(Posts[1].creatorId)
+
   // console.log(Posts)
   return (
-    // style={postPageStyle}
     <div className="PostsPage">
       <div className="nav" style={postNavStyle}>
         <Nav />
       </div>
-      <div className="createpost" style={addPost}>
-        {/* <h5
-          className="createpostlink"
-          style={addPostLink}
-          onClick={() => navigate('/createpost')}
-        >
-          create a post
-        </h5> */}
-        <CreatePostForm />
-      </div>
       <div className="postGrid" style={postgridstyle}>
+        <div className="createpost" style={addPost}>
+          <CreatePostForm />
+        </div>
         <div className="futureAddSpace" style={futureAddSpaceStyle}>
           <h5>future add space</h5>
         </div>
