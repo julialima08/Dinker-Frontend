@@ -4,10 +4,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const ProfileCard = (props) => {
-  // const swipeRight = () => {}
-
-  // const swipeLeft = () => {}
-
   const [user, setUser] = useState([])
 
   let userId = localStorage.getItem('id')

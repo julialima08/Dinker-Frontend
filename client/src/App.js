@@ -1,7 +1,7 @@
 import './CSS/App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Swipe from './pages/Swipe'
+import Swipe from './pages/Main'
 import Posts from './pages/Posts'
 import Profile from './pages/Profile'
 import UpdateProfileForm from './components/UpdateProfileForm'

@@ -15,7 +15,6 @@ const Profile = () => {
     let userId = localStorage.getItem('id')
     const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
     setUser(response.data)
-    console.log(response.data)
   }
 
   useEffect(() => {

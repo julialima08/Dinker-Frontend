@@ -1,5 +1,4 @@
 import Client from './api'
-import { useState, useEffect } from 'react'
 
 export const SignInUser = async (data) => {
   try {
@@ -26,7 +25,6 @@ export const CheckSession = async () => {
   try {
     // Checks if the current token if it exists is valid
     const res = await Client.get('api/auth/session')
-    console.log(res.data)
     return res.data
   } catch (error) {
     throw error
