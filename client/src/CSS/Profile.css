@@ -33,3 +33,9 @@
   color: white;
   border-radius: 20px;
 }
+
+.userAvatar {
+  height: 250px;
+  width: 250px;
+  padding: 20px;
+}

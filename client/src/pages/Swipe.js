@@ -11,6 +11,7 @@ const Swipe = () => {
   const getUsers = async () => {
     const response = await axios.get(`${BASE_URL}/api/users`)
     setUsers(response.data)
+    console.log(response.data)
   }
 
   useEffect(() => {
@@ -24,11 +25,13 @@ const Swipe = () => {
       </div>
       <div className="swipe">
         <div className="swipeGrid">
-          {users.map((user) => (
-            <div className="swipeCard">
-              <ProfileCard user={user} key={user.id} />
-            </div>
-          ))}
+          {users
+            .sort((a, b) => a.id - b.id)
+            .map((user) => (
+              <div className="swipeCard">
+                <ProfileCard user={user} key={user.id} />
+              </div>
+            ))}
         </div>
       </div>
     </div>
