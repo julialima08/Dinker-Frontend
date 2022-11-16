@@ -1,14 +1,53 @@
-.updatePage {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .nav {
   background-color: black;
   color: white;
   width: 33vw;
   height: 100vh;
+}
+
+.userIconAndName {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.userIconAndName:hover {
+  background-color: black;
+  border-radius: 50px;
+}
+
+.userName {
+  margin: 0;
+  padding: 0 10px;
+}
+
+.userIcon {
+  background-color: white;
+  border-radius: 50px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: gray;
+  padding: 10px 0 10px 0;
+}
+
+.logoutButton, .postsButton, .swipeButton {
+  padding: 2px;
+
+}
+
+/* ////// */
+
+.updatePage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .update {
@@ -21,7 +60,7 @@
   align-items:center;
 }
 
-.updateCard {
+.updateForm {
   grid-column: 1;
   grid-row: 1;
   place-self: center;
@@ -32,4 +71,15 @@
   height: 500px;
   color: white;
   border-radius: 20px;
+}
+
+.formDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0 10px 0;
+}
+
+#avatar, #name, #username, #skills, #socialLinks, #projects {
+  text-align: center;
+  margin: 5px 0 5px 0;
 }

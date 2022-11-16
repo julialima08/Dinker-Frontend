@@ -78,19 +78,21 @@ const Main = () => {
       </div>
       <div className="swipePg">
         <div className="swipeGrid">
-          {users.map((user, index) => (
-            <SwipeCard
-              ref={childRefs[index]}
-              className="swipe"
-              key={user.id}
-              onSwipe={(dir) => swiped(dir, user.id, index)}
-              onCardLeftScreen={() => outOfFrame(user.id, index)}
-            >
-              <div className="swipeCard">
-                <ProfileCard user={user} key={user.id} />
-              </div>
-            </SwipeCard>
-          ))}
+          {users
+            .sort((a, b) => a.id - b.id)
+            .map((user, index) => (
+              <SwipeCard
+                ref={childRefs[index]}
+                className="swipe"
+                key={user.id}
+                onSwipe={(dir) => swiped(dir, user.id, index)}
+                onCardLeftScreen={() => outOfFrame(user.id, index)}
+              >
+                <div className="swipeCard">
+                  <ProfileCard user={user} key={user.id} />
+                </div>
+              </SwipeCard>
+            ))}
         </div>
         <div className="buttons">
           <button

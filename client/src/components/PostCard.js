@@ -10,7 +10,7 @@ const PostCard = (props) => {
     borderStyle: 'solid',
     borderWidth: '1px',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.15)',
-    margin: '20px auto 20px auto',
+    margin: '0 auto 20px auto',
     padding: '0 16px 16px 16px',
     maxWidth: '468px',
     textAlign: 'left'
@@ -21,13 +21,11 @@ const PostCard = (props) => {
     fontWeight: 'normal',
     lineHeight: '20px'
   }
-
   return (
     <div className="PostCard" style={postCardStyle}>
       <h1 style={hOne}>{`${props.Posts.title}`}</h1>
       <p style={pStyle}>{`${props.Posts.body}`}</p>
       <p style={pStyle}>{`${props.Posts.skills}`}</p>
-      <p>postCard</p>
     </div>
   )
 }
