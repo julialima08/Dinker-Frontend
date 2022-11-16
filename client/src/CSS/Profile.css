@@ -5,7 +5,7 @@
 }
 
 .nav {
-  background-color: black;
+  background-color: #17181e;
   color: white;
   width: 33vw;
   height: 100vh;
@@ -27,11 +27,13 @@
   place-self: center;
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: #17181e;
   width: 350px;
   height: 500px;
   color: white;
   border-radius: 20px;
+  overflow: auto;
+  border: 2px solid #2a2c37;
 }
 
 .userAvatar {

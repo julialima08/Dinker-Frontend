@@ -1,8 +1,9 @@
 .nav {
-  background-color: black;
+  background-color: #17181e;
   color: white;
   width: 33vw;
   height: 100vh;
+  border: 2px solid #2a2c37;
 }
 
 .userIconAndName {
@@ -10,12 +11,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  padding: 5px 10px 5px 10px;
 }
 
 .userIconAndName:hover {
-  background-color: black;
+  background-color: hsl(0, 0%, 0%, .5);
   border-radius: 50px;
+  transition: 0.3s;
 }
 
 .userName {
@@ -33,7 +35,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: gray;
+  background-image: linear-gradient(to right, #a37774 , #e88873);
   padding: 10px 0 10px 0;
 }
 
@@ -48,6 +50,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-align: left;
 }
 
 .update {
@@ -66,20 +69,97 @@
   place-self: center;
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: #17181e;
   width: 350px;
   height: 500px;
   color: white;
   border-radius: 20px;
+  border: 2px solid #2a2c37;
+  overflow: auto;
 }
 
 .formDiv {
   display: flex;
   flex-direction: column;
-  padding: 10px 0 10px 0;
+  padding: 0px 0 20px 0;
 }
 
 #avatar, #name, #username, #skills, #socialLinks, #projects {
-  text-align: center;
+  text-align: left;
+  padding: 0 0 0 30px;
   margin: 5px 0 5px 0;
+  background-color: black;
+  border-top: 2px solid #2a2c37;
+  border-bottom: 2px solid #2a2c37;
+  border-right: none;
+  border-left: none;
+  height: 44px;
+  color: white;
+}
+
+.avatarMap, .selectAvatarButton {
+  height: 45px;
+  overflow-y: auto;
+  background-color:black;
+  border-top: 2px solid #2a2c37;
+  border-bottom: 2px solid #2a2c37;
+}
+
+.selectAvatarButton {
+  border-right: none;
+  border-left: none;
+  padding: 0 0 0 20px;
+}
+
+.avatarMap {
+  width: 350px;
+  padding: 0 0 0 20px;
+}
+
+.avatarDiv {
+  margin: 70px 0 0 0;
+}
+
+.updateButtons {
+  width: 350px;
+  margin: 0;
+  position: fixed;
+  border-radius: 50px;
+}
+
+.submitButton1, .submitButton2 {
+  width: 175px;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border: 1px solid #2a2c37;
+  font-weight: bold;
+}
+
+.submitButton1 {
+  border-radius: 20px 0 0 0;
+  color: #E88873;
+}
+
+.submitButton2 {
+  border-radius: 0 20px 0 0;
+}
+
+.deleteButtons {
+  text-align: center;
+}
+
+.deleteButton {
+  background-color: black;
+  color: white;
+  border: 1px solid #2a2c37;
+  height: 50px;
+  background-color: #E88873;
+  border-radius: 50px;
+  width: 100px;
+  margin: 0 0 20px 0;
+}
+
+.formLabel {
+  padding: 0 0 20px 10px;
 }

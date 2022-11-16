@@ -4,6 +4,7 @@ import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import avatars from '../avatars'
 
 const UpdateProfile = () => {
   let navigate = useNavigate()
@@ -13,7 +14,7 @@ const UpdateProfile = () => {
     name: '',
     username: '',
     skills: [],
-    socialLinks: [],
+    socialLinks: '',
     projects: []
   }
 
@@ -21,7 +22,15 @@ const UpdateProfile = () => {
 
   const [user, setUser] = useState([])
 
+  const [selecting, setSelecting] = useState(false)
+
   let userId = localStorage.getItem('id')
+
+  const selectAvatar = (avatar) => {
+    let tempState = { ...formState, avatar: avatar.url }
+    setFormState(tempState)
+    setSelecting(false)
+  }
 
   const getProfile = async () => {
     const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
@@ -59,16 +68,50 @@ const UpdateProfile = () => {
         <div className="updateGrid">
           <form className="updateForm" onSubmit={handleSubmit}>
             <div className="formDiv">
-              <label htmlFor="avatar">Avatar:</label>
-              <input
-                onChange={handleChange}
-                type="text"
-                id="avatar"
-                value={formState.avatar}
-              ></input>
+              <div className="updateButtons">
+                <button
+                  className="submitButton1"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
+                  Edit
+                </button>
+                <button
+                  className="submitButton2"
+                  type="submit"
+                  onClick={() => navigate('/profile')}
+                >
+                  Profile
+                </button>
+              </div>
+              <label className="avatarDiv formLabel" htmlFor="selectAvatar">
+                AVATAR
+              </label>
+              {selecting ? (
+                <div className="avatarMap">
+                  {avatars.map((avatar, index) => (
+                    <img
+                      className="mappedAvatars"
+                      key={index}
+                      src={avatar.url}
+                      alt={avatar.name}
+                      onClick={() => selectAvatar(avatar)}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div
+                  className="selectAvatarButton"
+                  onClick={() => setSelecting(true)}
+                >
+                  <img className="selectedAvatar" src={formState.avatar} />
+                </div>
+              )}
             </div>
             <div className="formDiv">
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="name" className="formLabel">
+                NAME
+              </label>
               <input
                 onChange={handleChange}
                 type="text"
@@ -77,7 +120,9 @@ const UpdateProfile = () => {
               ></input>
             </div>
             <div className="formDiv">
-              <label htmlFor="username">Username:</label>
+              <label htmlFor="username" className="formLabel">
+                USERNAME
+              </label>
               <input
                 onChange={handleChange}
                 type="text"
@@ -86,16 +131,33 @@ const UpdateProfile = () => {
               ></input>
             </div>
             <div className="formDiv">
-              <label htmlFor="skills">Skills:</label>
-              <input
+              <label htmlFor="skills" className="formLabel">
+                PRIMARY SKILL
+              </label>
+              <select
                 onChange={handleChange}
-                type="text"
+                type="checkbox"
                 id="skills"
                 value={formState.skills}
-              ></input>
+              >
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSSL</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="React">React</option>
+                <option value="MongoDB">MongoDB</option>
+                <option value="Express">Express</option>
+                <option value="PostgreSQL">PostgreSQL</option>
+                <option value="Sequelize">Sequelize</option>
+                <option value="Auth">Auth</option>
+                <option value="Vue">Vue.jsL</option>
+                <option value="Python">Python</option>
+                <option value="Flask">Flask</option>
+              </select>
             </div>
             <div className="formDiv">
-              <label htmlFor="socialLinks">Social Links:</label>
+              <label htmlFor="socialLinks" className="formLabel">
+                SOCIAL LINK
+              </label>
               <input
                 onChange={handleChange}
                 type="text"
@@ -104,7 +166,9 @@ const UpdateProfile = () => {
               ></input>
             </div>
             <div className="formDiv">
-              <label htmlFor="projects">Projects:</label>
+              <label htmlFor="projects" className="formLabel">
+                PORTFOLIO
+              </label>
               <input
                 onChange={handleChange}
                 type="text"
@@ -112,27 +176,13 @@ const UpdateProfile = () => {
                 value={formState.projects}
               ></input>
             </div>
-            <div className="formButtons">
+            <div className="deleteButtons">
               <button
-                className="submitButton"
-                type="submit"
-                onClick={handleSubmit}
-              >
-                SUBMIT
-              </button>
-              <button
-                className="submitButton"
-                type="submit"
-                onClick={() => navigate('/profile')}
-              >
-                MY PROFILE
-              </button>
-              <button
-                className="submitButton"
-                type="submit"
+                className="deleteButton"
+                type="delete"
                 onClick={deleteUser}
               >
-                DELETE
+                Delete
               </button>
             </div>
           </form>
