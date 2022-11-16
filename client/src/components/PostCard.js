@@ -1,3 +1,7 @@
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../globals'
+
 const PostCard = (props) => {
   const postCardStyle = {
     display: 'inlineBlock',
@@ -21,11 +25,26 @@ const PostCard = (props) => {
     fontWeight: 'normal',
     lineHeight: '20px'
   }
+
+  const userz = props.users
+
+  // function matchUsernameToPost(age) {
+  //   return age > document.getElementById('ageToCheck').value
+  // }
+
+  // function myFunction() {
+  //   document.getElementById('demo').innerHTML = ages.filter(checkAge)
+  // }
+  let usernames = props.users.map(({ username }) => username)
+  console.log(usernames)
+
+  console.log(userz)
   return (
     <div className="PostCard" style={postCardStyle}>
       <h1 style={hOne}>{`${props.Posts.title}`}</h1>
       <p style={pStyle}>{`${props.Posts.body}`}</p>
       <p style={pStyle}>{`${props.Posts.skills}`}</p>
+      <p style={pStyle}>{`${props.Posts.creatorId}`}</p>
     </div>
   )
 }

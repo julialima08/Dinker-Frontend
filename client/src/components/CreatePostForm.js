@@ -9,7 +9,6 @@ const CreatePostForm = () => {
   const [userAvatar, setUserAvatar] = useState(null)
 
   const getUserInfo = async (data) => {
-    // let userId = localStorage.getItem('id')
     const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
     setUserInfo(response.data.name)
     setUserAvatar(response.data.avatar)
@@ -18,9 +17,8 @@ const CreatePostForm = () => {
     getUserInfo()
   }, [])
 
-  console.log(userInfo)
+  // console.log(userInfo)
 
-  // const navigate = useNavigate()
   const initialState = {
     title: '',
     body: '',
@@ -36,22 +34,7 @@ const CreatePostForm = () => {
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
-  const postformheader = {
-    // display: 'inlineBlock',
-    // // fontFamily: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-    // fontSize: '12px',
-    // fontWeight: 'bold',
-    // lineHeight: '16px',
-    // borderColor: '#eee #ddd #bbb',
-    // borderRadius: '5px',
-    // borderStyle: 'solid',
-    // borderWidth: '1px',
-    // boxShadow: '0 1px 3px rgba(0, 0, 0, 0.15)',
-    // margin: '0 auto 20px auto',
-    // padding: '0 16px 16px 16px',
-    // maxWidth: '468px',
-    // textAlign: 'left'
-  }
+  const postformheader = {}
   const postformheadertext = {
     backgroundColor: 'red'
   }
@@ -59,7 +42,7 @@ const CreatePostForm = () => {
   return (
     <div>
       <h2 style={postformheader}>
-        <img src="{userAvatar}" alt=""></img>
+        <img src={userAvatar} alt="no avatar"></img>
         <div style={postformheadertext}>What's on your mind, {userInfo} ?</div>
       </h2>
       <form onSubmit={handleSubmit}>

@@ -13,6 +13,20 @@ const Posts = (props) => {
     }
     getPosts()
   }, [])
+
+  const [users, setUsers] = useState([])
+  const getUsers = async () => {
+    const response = await axios.get(`${BASE_URL}/api/users/`)
+    setUsers(response.data)
+  }
+  useEffect(() => {
+    getUsers()
+  }, [])
+  console.log(users)
+
+  // let usernames = users.map(({ username }) => username)
+  // console.log(usernames)
+
   const postNavStyle = {
     position: 'fixed'
   }
@@ -45,8 +59,9 @@ const Posts = (props) => {
     width: '67vw',
     float: 'right'
   }
+  // usernamez = Object.values()
+  // console.log(users)
 
-  // console.log(Posts)
   return (
     <div className="PostsPage">
       <div className="nav" style={postNavStyle}>
@@ -61,7 +76,7 @@ const Posts = (props) => {
         </div>
         {Posts.map((Posts) => (
           <div className="postCard">
-            <PostCard Posts={Posts} key={Posts.id} />
+            <PostCard users={users} Posts={Posts} key={Posts.id} />
           </div>
         ))}
       </div>
