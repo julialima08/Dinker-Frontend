@@ -2,13 +2,17 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 // import { useNavigate } from 'react-router-dom'
+let userId = localStorage.getItem('id')
 
 const CreatePostForm = () => {
   const [userInfo, setUserInfo] = useState(null)
+  const [userAvatar, setUserAvatar] = useState(null)
+
   const getUserInfo = async (data) => {
-    let userId = localStorage.getItem('id')
+    // let userId = localStorage.getItem('id')
     const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
-    setUserInfo(response.data)
+    setUserInfo(response.data.name)
+    setUserAvatar(response.data.avatar)
   }
   useEffect(() => {
     getUserInfo()
@@ -38,7 +42,9 @@ const CreatePostForm = () => {
 
   return (
     <div>
-      {/* <h2 style={postformheader}>What's on your mind {userInfo.name} ?</h2> */}
+      <h2 style={postformheader}>
+        <img src="{userAvatar}" alt=""></img>What's on your mind {userInfo} ?
+      </h2>
       <form onSubmit={handleSubmit}>
         <input
           id="title"
