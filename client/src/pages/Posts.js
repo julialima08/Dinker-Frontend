@@ -19,7 +19,7 @@ const Posts = (props) => {
     // display: 'flex',
     // flexWrap: 'wrap'
   }
-  console.log(Posts)
+
   return (
     <div className="Posts">
       <h1>Posts</h1>

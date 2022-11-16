@@ -16,7 +16,7 @@ const Nav = ({ setUserId }) => {
 
   const getUserInfo = async (data) => {
     let userId = localStorage.getItem('id')
-    console.log(userId)
+
     const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
     setUserInfo(response.data)
     // console.log(response.data)

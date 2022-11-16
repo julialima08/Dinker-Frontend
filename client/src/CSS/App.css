@@ -1,9 +1,13 @@
 body {
   margin: 0;
+  /* overflow: hidden; */
 }
 
 .App {
   text-align: center;
 }
 
+#root {
+  overflow-x: hidden;
+}
 

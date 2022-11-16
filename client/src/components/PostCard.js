@@ -21,7 +21,7 @@ const PostCard = (props) => {
     fontWeight: 'normal',
     lineHeight: '20px'
   }
-  console.log('props.Posts')
+
   return (
     <div className="PostCard" style={postCardStyle}>
       <h1 style={hOne}>{`${props.Posts.title}`}</h1>
