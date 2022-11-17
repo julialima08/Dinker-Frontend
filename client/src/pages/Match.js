@@ -1,9 +1,10 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useNavigate } from 'react'
 import MatchCard from '../components/MatchCard'
 import { BASE_URL } from '../globals'
 
-const Match = () => {
+const Match = (props) => {
+  let navigate = useNavigate()
   const [matches, setMatches] = useState([])
   let userId = localStorage.getItem('id')
 
@@ -16,6 +17,10 @@ const Match = () => {
     getMatches()
   }, [])
 
+  const handleClick = () => {
+    navigate('/matches')
+  }
+
   return (
     <div>
       {matches.map((match) => (
@@ -23,6 +28,7 @@ const Match = () => {
           avatar={match.avatar}
           name={match.name}
           username={match.username}
+          onClick={handleClick}
         />
       ))}
     </div>

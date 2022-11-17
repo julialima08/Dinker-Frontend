@@ -6,6 +6,7 @@ import Posts from './pages/Posts'
 import CreatePostForm from './components/CreatePostForm'
 import Profile from './pages/Profile'
 import UpdateProfileForm from './components/UpdateProfileForm'
+import MatchProfile from './pages/MatchProfile'
 import { CheckSession } from './services/Auth'
 import { useState, useEffect } from 'react'
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/createpost" element={<CreatePostForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/updateprofile" element={<UpdateProfileForm />} />
+          <Route path="/matches" element={<MatchProfile />} />
         </Routes>
       </main>
     </div>
