@@ -3,14 +3,21 @@
   flex-direction: column;
 }
 
+body {
+  background-image: url("https://i.imgur.com/52htTsl.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
 .nav-holder {
   height: 10vh;
 }
 
 .form-holder {
-  height: 90vh;
-  display: grid;
+  /* height: 90vh; */
+  display: flex;
   align-items:center;
+  justify-content: center;
 }
 
 .login-form, .register-form{
@@ -19,7 +26,11 @@ grid-row: 1;
 place-self: center;
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
 background-color: white;
+background-color:hsl(0, 0%, 0%, 0);
+color: white;
 }
 
 .form {
@@ -36,8 +47,9 @@ background-color: white;
   display:flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lavender;
+  background-color: hsl(0, 0%, 0%, 0);
   padding: 10px;
+  color: white;
 }
 
 .logo-name {
@@ -45,8 +57,52 @@ background-color: white;
   align-items: center;
 }
 
+.homeHeader {
+  color: white;
+  font-size: 100px;
+  margin: 150px 0 50px 0;
+}
+
 img {
   height:40px;
   width:40px;
+}
+
+.homeButton {
+  color: white;
+  border: 1px solid #2a2c37;
+  height: 45px;
+  background-image: linear-gradient(to right, #e55ae2 , #ee1908);
+  border-radius: 50px;
+  border: none;
+  width: 250px;
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-family: 'Figtree', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: .8px;
+}
+
+.createHeader1, .createHeader2 {
+  margin: 0;
+  font-style: oblique;
+}
+
+.createHeader1 {
+  margin: 0 0 4px 0;
+}
+
+.createHeaderDiv {
+  margin: 40px;
+}
+
+.textShadowDiv {
+  background-color: hsl(0, 0%, 50%, .7);
+  color: gray;
+  height: 20px;
+  width: 230px;
+  margin: -17px 18px 0 0;
+  transform: skew(340deg);
 }
 
