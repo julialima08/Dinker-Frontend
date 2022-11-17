@@ -6,7 +6,9 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const MatchProfile = ({ matches, getMatches }) => {
+const MatchProfile = ({ matches, getMatches, matcheeId }) => {
+  // const [matcheee, setMatcheee] = useState(null)
+
   let matchId = window.location.href.split('/').reverse()[0]
   console.log(matchId)
   // const { matchId } = useParams()
@@ -21,7 +23,7 @@ const MatchProfile = ({ matches, getMatches }) => {
   useEffect(() => {
     getMatchInfo()
   }, [matchId])
-
+  console.log(matcheeId)
   return (
     <div className="profilePage">
       <div className="nav">

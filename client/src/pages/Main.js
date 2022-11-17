@@ -6,7 +6,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react'
 import axios from 'axios'
 import SwipeCard from '../animation code/swipeAnimation'
 
-const Main = ({ getMatches, matches }) => {
+const Main = ({ getMatches, matches, matcheeId }) => {
   const [users, setUsers] = useState([])
 
   const getUsers = async () => {
@@ -18,7 +18,7 @@ const Main = ({ getMatches, matches }) => {
     getUsers()
   }, [])
   let userId = localStorage.getItem('id')
-
+  console.log(matcheeId)
   // const [matches, setMatches] = useState([])
 
   // let userId = localStorage.getItem('id')
@@ -94,7 +94,7 @@ const Main = ({ getMatches, matches }) => {
   return (
     <div className="swipePage">
       <div className="nav">
-        <Nav getMatches={getMatches} matches={matches} />
+        <Nav getMatches={getMatches} matches={matches} matcheeId={matcheeId} />
       </div>
       <div className="swipePg">
         <div className="swipeGrid">

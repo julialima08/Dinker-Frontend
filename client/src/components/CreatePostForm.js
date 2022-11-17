@@ -39,7 +39,6 @@ const CreatePostForm = (props) => {
   const postformheadertext = {
     backgroundColor: 'red'
   }
-  console.log(formState.skills)
 
   return (
     <div>

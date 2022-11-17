@@ -14,6 +14,13 @@ import { BASE_URL } from './globals'
 function App() {
   const [user, setUser] = useState(null)
   const [matches, setMatches] = useState([])
+  const [matcheeId, setMatcheeId] = useState(null)
+
+  const findMatcheeId = () => {
+    let matchId = window.location.href.split('/').reverse()[0]
+    console.log(matchId)
+    setMatcheeId(matchId)
+  }
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -23,11 +30,12 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem('token')
     getMatches()
+    findMatcheeId()
     if (token) {
       checkToken()
     }
   }, [])
-
+  console.log(matcheeId)
   let userId = localStorage.getItem('id')
 
   const getMatches = async () => {
@@ -44,7 +52,13 @@ function App() {
           <Route path="/" element={<Home setUser={setUser} />} />
           <Route
             path="/main"
-            element={<Main getMatches={getMatches} matches={matches} />}
+            element={
+              <Main
+                getMatches={getMatches}
+                matches={matches}
+                matcheeId={matcheeId}
+              />
+            }
           />
           <Route
             path="/post"
@@ -68,7 +82,13 @@ function App() {
           />
           <Route
             path="/users/:id"
-            element={<MatchProfile getMatches={getMatches} matches={matches} />}
+            element={
+              <MatchProfile
+                getMatches={getMatches}
+                matches={matches}
+                matcheeId={matcheeId}
+              />
+            }
           />
         </Routes>
       </main>

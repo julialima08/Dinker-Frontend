@@ -6,7 +6,7 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import '../CSS/Nav.css'
 
-const Nav = ({ setUserId, matches, getMatches }) => {
+const Nav = ({ setUserId, matches, getMatches, matcheeId }) => {
   // let userId
 
   const [userInfo, setUserInfo] = useState(null)
@@ -40,7 +40,7 @@ const Nav = ({ setUserId, matches, getMatches }) => {
   // useEffect(() => {
   //   getMatches()
   // }, [matches])
-
+  console.log(matcheeId)
   return (
     <>
       {userInfo ? (
