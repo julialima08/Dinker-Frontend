@@ -20,7 +20,6 @@ const CreatePostForm = (props) => {
   // useEffect(() => {
   //   props.getPosts()
   // }, [])
-  console.log(props.getPosts)
 
   const initialState = {
     title: '',
@@ -40,6 +39,7 @@ const CreatePostForm = (props) => {
   const postformheadertext = {
     backgroundColor: 'red'
   }
+  console.log(formState.skills)
 
   return (
     <div>
@@ -90,9 +90,7 @@ const CreatePostForm = (props) => {
         <button
           type="submit"
           disabled={
-            !formState.title ||
-            !formState.body ||
-            formState.skills.value === 'pick'
+            !formState.title || !formState.body || formState.skills.length === 0
           }
         >
           Submit New Post!
