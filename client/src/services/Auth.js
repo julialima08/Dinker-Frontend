@@ -30,3 +30,25 @@ export const CheckSession = async () => {
     throw error
   }
 }
+
+export const updateProfile = async (userId, formState) => {
+  try {
+    await Client.put(`api/users/${userId}`, formState)
+  } catch (error) {
+    throw error
+  }
+}
+
+export const deleteProfile = async (userId) => {
+  try {
+    await Client.delete(`api/users/${userId}`)
+  } catch (error) {
+    throw error
+  }
+}
+
+export const createPost = async (formState) => {
+  try {
+    await Client.post(`api/posts/create`, formState)
+  } catch (error) {}
+}

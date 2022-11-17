@@ -28,8 +28,6 @@ function App() {
     }
   }, [])
 
-  // const [matches, setMatches] = useState([])
-
   let userId = localStorage.getItem('id')
 
   const getMatches = async () => {
@@ -48,10 +46,26 @@ function App() {
             path="/main"
             element={<Main getMatches={getMatches} matches={matches} />}
           />
-          <Route path="/post" element={<Posts />} />
-          <Route path="/createpost" element={<CreatePostForm />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/updateprofile" element={<UpdateProfileForm />} />
+          <Route
+            path="/post"
+            element={<Posts getMatches={getMatches} matches={matches} />}
+          />
+          <Route
+            path="/createpost"
+            element={
+              <CreatePostForm getMatches={getMatches} matches={matches} />
+            }
+          />
+          <Route
+            path="/profile"
+            element={<Profile getMatches={getMatches} matches={matches} />}
+          />
+          <Route
+            path="/updateprofile"
+            element={
+              <UpdateProfileForm getMatches={getMatches} matches={matches} />
+            }
+          />
           <Route
             path="/users/:id"
             element={<MatchProfile getMatches={getMatches} matches={matches} />}

@@ -4,16 +4,13 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import Nav from '../components/Nav'
 import CreatePostForm from '../components/CreatePostForm'
-const Posts = (props) => {
+
+const Posts = ({ getMatches, matches }) => {
   const [Posts, setPosts] = useState([])
   const getPosts = async () => {
     const res = await axios.get(`${BASE_URL}/api/posts`)
     setPosts(res.data)
   }
-
-  useEffect(() => {
-    getPosts()
-  }, [])
 
   const [users, setUsers] = useState([])
   const getUsers = async () => {
@@ -22,11 +19,8 @@ const Posts = (props) => {
   }
   useEffect(() => {
     getUsers()
+    getPosts()
   }, [])
-  // console.log(users)
-
-  // let usernames = users.map(({ username }) => username)
-  // console.log(usernames)
 
   const postNavStyle = {
     position: 'fixed'
@@ -66,7 +60,7 @@ const Posts = (props) => {
   return (
     <div className="PostsPage">
       <div className="nav" style={postNavStyle}>
-        <Nav />
+        <Nav getMatches={getMatches} matches={matches} />
       </div>
       <div className="postGrid" style={postgridstyle}>
         <div className="createpost" style={addPost}>
@@ -75,7 +69,7 @@ const Posts = (props) => {
         <div className="futureAddSpace" style={futureAddSpaceStyle}>
           <h5>future add space</h5>
         </div>
-        {Posts.map((Posts) => (
+        {Posts.sort((a, b) => b.id - a.id).map((Posts) => (
           <div className="postCard">
             <PostCard users={users} Posts={Posts} key={Posts.id} />
           </div>

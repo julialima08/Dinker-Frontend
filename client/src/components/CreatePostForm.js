@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
+import { createPost } from '../services/Auth'
 // import { useNavigate } from 'react-router-dom'
 let userId = localStorage.getItem('id')
 
@@ -29,10 +30,8 @@ const CreatePostForm = (props) => {
   const [formState, setFormState] = useState(initialState)
   const handleSubmit = async (event) => {
     event.preventDefault()
-    let result = await axios.post(`${BASE_URL}/api/posts/create`, formState)
-    console.log(result.data)
+    createPost(formState)
     setFormState(initialState)
-    // window.location.reload()
   }
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
@@ -73,6 +72,7 @@ const CreatePostForm = (props) => {
             id="skills"
             value={formState.skills}
           >
+            <option value="pick">Pick a Skill</option>
             <option value="HTML">HTML</option>
             <option value="CSS">CSSL</option>
             <option value="JavaScript">JavaScript</option>
@@ -87,7 +87,16 @@ const CreatePostForm = (props) => {
             <option value="Flask">Flask</option>
           </select>
         </div>
-        <button type="submit">Submit New Post!</button>
+        <button
+          type="submit"
+          disabled={
+            !formState.title ||
+            !formState.body ||
+            formState.skills.value === 'pick'
+          }
+        >
+          Submit New Post!
+        </button>
         {/* <button type="submit">Submit New Post!</button> */}
       </form>
     </div>
