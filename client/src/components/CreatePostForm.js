@@ -90,9 +90,7 @@ const CreatePostForm = (props) => {
         <button
           type="submit"
           disabled={
-            !formState.title ||
-            !formState.body ||
-            formState.skills.value === 'pick'
+            !formState.title || !formState.body || formState.skills.length === 0
           }
         >
           Submit New Post!
