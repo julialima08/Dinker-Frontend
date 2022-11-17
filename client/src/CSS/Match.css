@@ -1,0 +1,19 @@
+.matchDiv {
+  display: flex;
+  align-items: center;
+  background-color: aliceblue;
+  font-size: 9px;
+  color: black;
+  width: 215px;
+  padding: 5px;
+  margin: 8px;
+  border-radius: 20px;
+}
+
+.matchImage {
+  border-radius: 25px;
+}
+
+.matchUserName {
+  margin-left: 5px;
+}
