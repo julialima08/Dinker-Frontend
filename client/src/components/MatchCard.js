@@ -2,7 +2,7 @@ import '../CSS/Match.css'
 
 const MatchCard = (props) => {
   return (
-    <div className="matchDiv" onClick={props.handleClick}>
+    <div className="matchDiv" onClick={() => props.onClick(props.id)}>
       <div>
         <img className="matchImage" src={props.avatar} alt="" />
       </div>

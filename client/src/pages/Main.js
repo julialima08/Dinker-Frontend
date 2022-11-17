@@ -8,7 +8,6 @@ import SwipeCard from '../animation code/swipeAnimation'
 
 const Main = () => {
   const [users, setUsers] = useState([])
-  let userId = localStorage.getItem('id')
 
   const getUsers = async () => {
     const response = await axios.get(`${BASE_URL}/api/users`)
@@ -19,8 +18,19 @@ const Main = () => {
     getUsers()
   }, [])
 
+  const [matches, setMatches] = useState([])
+
+  let userId = localStorage.getItem('id')
+
+  const getMatches = async () => {
+    const response = await axios.get(
+      `${BASE_URL}/api/users/usermatches/${userId}`
+    )
+    setMatches(response.data.matchees)
+  }
+
   const [matchId, setMatchId] = useState({ matchId: null })
-  const swipeRight = async (id, idx) => {
+  const swipeRight = async (id, idx, e) => {
     setMatchId({ matchId: id })
     console.log(matchId)
     if (matchId != null) {
@@ -28,7 +38,8 @@ const Main = () => {
         `${BASE_URL}/api/users/match/${userId}`,
         matchId
       )
-      console.log(makeMatch)
+      window.location.reload()
+      getMatches()
     } else {
       // setMatchId({ matchId: id })
     }
@@ -98,7 +109,7 @@ const Main = () => {
       <div className="swipePg">
         <div className="swipeGrid">
           {users
-            .sort((a, b) => a.id - b.id)
+            .sort(() => 0.5 - Math.random())
             .map((user, index) => (
               <SwipeCard
                 ref={childRefs[index]}

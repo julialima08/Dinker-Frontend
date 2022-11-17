@@ -75,7 +75,8 @@
   color: white;
   border-radius: 20px;
   border: 2px solid #2a2c37;
-  overflow: auto;
+  overflow-y: scroll;
+  scrollbar-color: #17181e;
 }
 
 .formDiv {
