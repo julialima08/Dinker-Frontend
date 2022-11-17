@@ -6,30 +6,30 @@ import { BASE_URL } from '../globals'
 import MatchProfile from './MatchProfile'
 import '../CSS/Match.css'
 
-const Match = () => {
-  const [matches, setMatches] = useState([])
+const Match = ({ getMatches, matches }) => {
+  // const [matches, setMatches] = useState([])
 
   let navigate = useNavigate()
   // const [matchId, setMatchId] = useState('')
   let { matchesid } = useParams()
-  let userId = localStorage.getItem('id')
+  // let userId = localStorage.getItem('id')
 
-  const getMatches = async () => {
-    const response = await axios.get(
-      `${BASE_URL}/api/users/usermatches/${userId}`
-    )
-    setMatches(response.data.matchees)
-    console.log(response.data.matchees)
-  }
+  // const getMatches = async () => {
+  //   const response = await axios.get(
+  //     `${BASE_URL}/api/users/usermatches/${userId}`
+  //   )
+  //   setMatches(response.data.matchees)
+  //   console.log(response.data.matchees)
+  // }
 
   const viewMatchCard = (id) => {
     navigate(`/users/${id}`)
-    window.location.reload()
+    // window.location.reload()
   }
 
-  useEffect(() => {
-    getMatches()
-  }, [matchesid])
+  // useEffect(() => {
+  //   getMatches()
+  // }, [matchesid])
 
   // const handleClick = (id) => {
   //   let matchId = id
