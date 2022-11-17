@@ -5,8 +5,9 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import avatars from '../avatars'
+import { deleteProfile, updateProfile } from '../services/Auth'
 
-const UpdateProfile = () => {
+const UpdateProfile = ({ getMatches, matches }) => {
   let navigate = useNavigate()
 
   const initialState = {
@@ -45,8 +46,7 @@ const UpdateProfile = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await axios.put(`${BASE_URL}/api/users/${userId}`, formState)
-    // setFormState(initalState)
+    updateProfile(userId, formState)
     navigate(`/profile`)
   }
 
@@ -55,14 +55,14 @@ const UpdateProfile = () => {
   }
 
   const deleteUser = async () => {
-    await axios.delete(`${BASE_URL}/api/users/${userId}`)
+    deleteProfile(userId, formState)
     navigate(`/`)
   }
 
   return (
     <div className="updatePage">
       <div className="nav">
-        <Nav />
+        <Nav getMatches={getMatches} matches={matches} />
       </div>
       <div className="update">
         <div className="updateGrid">

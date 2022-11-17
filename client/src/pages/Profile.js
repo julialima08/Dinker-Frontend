@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Profile = () => {
+const Profile = ({ getMatches, matches }) => {
   let navigate = useNavigate()
 
   const [user, setUser] = useState([])
@@ -24,7 +24,7 @@ const Profile = () => {
   return (
     <div className="profilePage">
       <div className="nav">
-        <Nav />
+        <Nav getMatches={getMatches} matches={matches} />
       </div>
       <div className="profile">
         <div className="profileGrid">

@@ -7,36 +7,13 @@ import MatchProfile from './MatchProfile'
 import '../CSS/Match.css'
 
 const Match = ({ getMatches, matches }) => {
-  // const [matches, setMatches] = useState([])
-
   let navigate = useNavigate()
-  // const [matchId, setMatchId] = useState('')
-  let { matchesid } = useParams()
-  // let userId = localStorage.getItem('id')
 
-  // const getMatches = async () => {
-  //   const response = await axios.get(
-  //     `${BASE_URL}/api/users/usermatches/${userId}`
-  //   )
-  //   setMatches(response.data.matchees)
-  //   console.log(response.data.matchees)
-  // }
+  let { matchesid } = useParams()
 
   const viewMatchCard = (id) => {
     navigate(`/users/${id}`)
-    // window.location.reload()
   }
-
-  // useEffect(() => {
-  //   getMatches()
-  // }, [matchesid])
-
-  // const handleClick = (id) => {
-  //   let matchId = id
-  //   navigate(`/matches/${id}`)
-  // }
-
-  // let render = null
 
   return (
     <div>
