@@ -6,7 +6,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react'
 import axios from 'axios'
 import SwipeCard from '../animation code/swipeAnimation'
 
-const Main = () => {
+const Main = ({ getMatches, matches }) => {
   const [users, setUsers] = useState([])
 
   const getUsers = async () => {
@@ -17,32 +17,22 @@ const Main = () => {
   useEffect(() => {
     getUsers()
   }, [])
-
-  const [matches, setMatches] = useState([])
-
   let userId = localStorage.getItem('id')
 
-  const getMatches = async () => {
-    const response = await axios.get(
-      `${BASE_URL}/api/users/usermatches/${userId}`
-    )
-    setMatches(response.data.matchees)
-  }
+  // const [matches, setMatches] = useState([])
 
-  const [matchId, setMatchId] = useState({ matchId: null })
+  // let userId = localStorage.getItem('id')
+
+  // const getMatches = async () => {
+  //   const response = await axios.get(
+  //     `${BASE_URL}/api/users/usermatches/${userId}`
+  //   )
+  //   setMatches(response.data.matchees)
+  // }
+
   const swipeRight = async (id, idx, e) => {
-    setMatchId({ matchId: id })
-    console.log(matchId)
-    if (matchId != null) {
-      const makeMatch = await axios.post(
-        `${BASE_URL}/api/users/match/${userId}`,
-        matchId
-      )
-      window.location.reload()
-      getMatches()
-    } else {
-      // setMatchId({ matchId: id })
-    }
+    await axios.post(`${BASE_URL}/api/users/match/${userId}`, { matchId: id })
+    getMatches()
   }
 
   //credit for swipe animation: github- 3DJakob
@@ -104,7 +94,7 @@ const Main = () => {
   return (
     <div className="swipePage">
       <div className="nav">
-        <Nav />
+        <Nav getMatches={getMatches} matches={matches} />
       </div>
       <div className="swipePg">
         <div className="swipeGrid">

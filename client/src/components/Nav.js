@@ -6,12 +6,12 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import '../CSS/Nav.css'
 
-const Nav = ({ setUserId }) => {
-  let userId
+const Nav = ({ setUserId, matches, getMatches }) => {
+  // let userId
 
   const [userInfo, setUserInfo] = useState(null)
 
-  const [matches, setMatches] = useState([])
+  // const [matches, setMatches] = useState([])
 
   const getUserInfo = async (data) => {
     let userId = localStorage.getItem('id')
@@ -80,7 +80,7 @@ const Nav = ({ setUserId }) => {
             </div>
           </div>
           <div className="matches">
-            <Match />
+            <Match getMatches={getMatches} matches={matches} />
           </div>
         </div>
       ) : null}

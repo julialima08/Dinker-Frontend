@@ -9,9 +9,11 @@ import UpdateProfileForm from './components/UpdateProfileForm'
 import MatchProfile from './pages/MatchProfile'
 import { CheckSession } from './services/Auth'
 import { useState, useEffect } from 'react'
-
+import axios from 'axios'
+import { BASE_URL } from './globals'
 function App() {
   const [user, setUser] = useState(null)
+  const [matches, setMatches] = useState([])
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -20,28 +22,40 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-
+    getMatches()
     if (token) {
       checkToken()
     }
   }, [])
 
-  // const handleLogOut = () => {
-  //   setUser(null)
-  //   localStorage.clear()
-  // }
+  // const [matches, setMatches] = useState([])
+
+  let userId = localStorage.getItem('id')
+
+  const getMatches = async () => {
+    const response = await axios.get(
+      `${BASE_URL}/api/users/usermatches/${userId}`
+    )
+    setMatches(response.data.matchees)
+  }
 
   return (
     <div className="App">
       <main>
         <Routes>
           <Route path="/" element={<Home setUser={setUser} />} />
-          <Route path="/main" element={<Main />} />
+          <Route
+            path="/main"
+            element={<Main getMatches={getMatches} matches={matches} />}
+          />
           <Route path="/post" element={<Posts />} />
           <Route path="/createpost" element={<CreatePostForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/updateprofile" element={<UpdateProfileForm />} />
-          <Route path="/users/:id" element={<MatchProfile />} />
+          <Route
+            path="/users/:id"
+            element={<MatchProfile getMatches={getMatches} matches={matches} />}
+          />
         </Routes>
       </main>
     </div>

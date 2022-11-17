@@ -6,10 +6,10 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const MatchProfile = () => {
+const MatchProfile = ({ matches, getMatches }) => {
   let matchId = window.location.href.split('/').reverse()[0]
   console.log(matchId)
-
+  // const { matchId } = useParams()
   const [matchInfo, setMatchInfo] = useState(null)
 
   const getMatchInfo = async () => {
@@ -20,12 +20,12 @@ const MatchProfile = () => {
 
   useEffect(() => {
     getMatchInfo()
-  }, [])
+  }, [matchId])
 
   return (
     <div className="profilePage">
       <div className="nav">
-        <Nav />
+        <Nav getMatches={getMatches} matches={matches} />
       </div>
       <div className="profile">
         {matchInfo ? (
