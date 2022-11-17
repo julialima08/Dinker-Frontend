@@ -72,16 +72,16 @@ const UpdateProfile = () => {
                 <button
                   className="submitButton1"
                   type="submit"
-                  onClick={handleSubmit}
+                  onClick={deleteUser}
                 >
-                  Edit
+                  Delete Profile
                 </button>
                 <button
                   className="submitButton2"
                   type="submit"
                   onClick={() => navigate('/profile')}
                 >
-                  Profile
+                  View Profile
                 </button>
               </div>
               <label className="avatarDiv formLabel" htmlFor="selectAvatar">
@@ -180,9 +180,9 @@ const UpdateProfile = () => {
               <button
                 className="deleteButton"
                 type="delete"
-                onClick={deleteUser}
+                onClick={handleSubmit}
               >
-                Delete
+                Save
               </button>
             </div>
           </form>

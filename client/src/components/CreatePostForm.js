@@ -32,6 +32,7 @@ const CreatePostForm = (props) => {
     let result = await axios.post(`${BASE_URL}/api/posts/create`, formState)
     console.log(result.data)
     setFormState(initialState)
+    window.location.reload()
   }
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })

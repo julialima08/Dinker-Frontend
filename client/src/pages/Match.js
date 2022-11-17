@@ -4,47 +4,54 @@ import { useNavigate, useParams } from 'react-router-dom'
 import MatchCard from '../components/MatchCard'
 import { BASE_URL } from '../globals'
 import MatchProfile from './MatchProfile'
+import '../CSS/Match.css'
 
-const Match = (props) => {
-  let navigate = useNavigate()
-
+const Match = () => {
   const [matches, setMatches] = useState([])
+
+  let navigate = useNavigate()
   // const [matchId, setMatchId] = useState('')
+  let { matchesid } = useParams()
   let userId = localStorage.getItem('id')
 
   const getMatches = async () => {
-    let res = await axios.get(`${BASE_URL}/api/users/usermatches/${userId}`)
-    setMatches(res.data.matchees)
+    const response = await axios.get(
+      `${BASE_URL}/api/users/usermatches/${userId}`
+    )
+    setMatches(response.data.matchees)
+    console.log(response.data.matchees)
   }
-  let { matchesid } = useParams()
+
+  const viewMatchCard = (id) => {
+    navigate(`/users/${id}`)
+    window.location.reload()
+  }
 
   useEffect(() => {
     getMatches()
   }, [matchesid])
 
-  const handleClick = (id) => {
-    let matchId = id
-    navigate(`/matches/${id}`)
-  }
+  // const handleClick = (id) => {
+  //   let matchId = id
+  //   navigate(`/matches/${id}`)
+  // }
 
-  let render = null
+  // let render = null
 
   return (
     <div>
-      {matches.map((match) => (
-        <>
-          {render === null ? (
-            <MatchCard
-              avatar={match.avatar}
-              name={match.name}
-              username={match.username}
-              onClick={handleClick(match.id)}
-            />
-          ) : (
-            <MatchProfile matchId={match.id} />
-          )}
-        </>
-      ))}
+      <div className="matchesMap">
+        {matches.map((match) => (
+          <MatchCard
+            id={match.id}
+            key={match.id}
+            avatar={match.avatar}
+            name={match.name}
+            username={match.username}
+            onClick={viewMatchCard}
+          />
+        ))}
+      </div>
     </div>
   )
 }
