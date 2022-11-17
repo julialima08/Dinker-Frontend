@@ -36,9 +36,9 @@ const PostCard = (props) => {
   //   document.getElementById('demo').innerHTML = ages.filter(checkAge)
   // }
   let usernames = props.users.map(({ username }) => username)
-  console.log(usernames)
+  // console.log(usernames)
 
-  console.log(userz)
+  // console.log(userz)
   return (
     <div className="PostCard" style={postCardStyle}>
       <h1 style={hOne}>{`${props.Posts.title}`}</h1>

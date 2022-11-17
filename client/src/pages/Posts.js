@@ -6,11 +6,12 @@ import Nav from '../components/Nav'
 import CreatePostForm from '../components/CreatePostForm'
 const Posts = (props) => {
   const [Posts, setPosts] = useState([])
+  const getPosts = async () => {
+    const res = await axios.get(`${BASE_URL}/api/posts`)
+    setPosts(res.data)
+  }
+
   useEffect(() => {
-    const getPosts = async () => {
-      const res = await axios.get(`${BASE_URL}/api/posts`)
-      setPosts(res.data)
-    }
     getPosts()
   }, [])
 
@@ -22,7 +23,7 @@ const Posts = (props) => {
   useEffect(() => {
     getUsers()
   }, [])
-  console.log(users)
+  // console.log(users)
 
   // let usernames = users.map(({ username }) => username)
   // console.log(usernames)
@@ -69,7 +70,7 @@ const Posts = (props) => {
       </div>
       <div className="postGrid" style={postgridstyle}>
         <div className="createpost" style={addPost}>
-          <CreatePostForm />
+          <CreatePostForm getPosts={getPosts} />
         </div>
         <div className="futureAddSpace" style={futureAddSpaceStyle}>
           <h5>future add space</h5>
