@@ -3,20 +3,22 @@ import ProfileCard from '../components/ProfileCard'
 import '../CSS/Profile.css'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-const Profile = () => {
+const MatchProfile = (props) => {
   const [user, setUser] = useState([])
-  let userId
 
-  const getProfile = async () => {
-    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
-    setUser(response.data)
-  }
+  let userId = props
+  console.log(userId)
+  // const getProfile = async () => {
+  //   const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
+  //   setUser(response.data)
+  // }
 
   // useEffect(() => {
   //   getProfile()
-  // }, [])
+  // }, [userId])
 
   return (
     <div className="profilePage">
@@ -34,4 +36,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default MatchProfile

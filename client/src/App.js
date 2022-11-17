@@ -41,7 +41,7 @@ function App() {
           <Route path="/createpost" element={<CreatePostForm />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/updateprofile" element={<UpdateProfileForm />} />
-          <Route path="/matches" element={<MatchProfile />} />
+          <Route path="/matches/:id" element={<MatchProfile />} />
         </Routes>
       </main>
     </div>
