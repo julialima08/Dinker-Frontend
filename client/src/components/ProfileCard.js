@@ -2,8 +2,9 @@ import '../CSS/Profile.css'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import 'animate.css'
 
-const ProfileCard = (props, { swipeRight }) => {
+const ProfileCard = (props) => {
   const [user, setUser] = useState([])
 
   let userId = localStorage.getItem('id')
@@ -38,12 +39,17 @@ const ProfileCard = (props, { swipeRight }) => {
           {props.user.id === user.id ? null : (
             <div className="swipeButtons">
               <img
-                className="swipeLeft"
+                className={
+                  props.leftActive ? 'animate__bounceOutLeft' : 'swipeLeft'
+                }
                 src="https://i.imgur.com/3J8rOeY.png"
                 alt=""
+                onClick={props.swipeLeft}
               />
               <img
-                className="swipeRight"
+                className={
+                  props.RightActive ? 'animate__bounceOutRight' : 'swipeRight'
+                }
                 src="https://i.imgur.com/k6Xb8Sy.png"
                 alt=""
                 onClick={props.swipeRight}

@@ -40,7 +40,7 @@ const Home = ({ setUser }) => {
           ) : (
             <div className="register-form">
               <RegisterForm setIsVisible={setIsVisible} />
-              <h3 className="createHeader2">have an account already?</h3>
+              <h3 className="createHeader3">have an account already?</h3>
               <button onClick={handleCreateClick} className="homeButton">
                 Login
               </button>

@@ -9,6 +9,9 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   const [users, setUsers] = useState([])
   const [currentIndex, setCurrentIndex] = useState(users.length - 1)
   const [lastDirection, setLastDirection] = useState()
+  const [rightActive, setRightActive] = useState(false)
+  const [leftActive, setLeftActive] = useState(false)
+
   // console.log('viewMatchCard')
   const getUsers = async () => {
     const response = await axios.get(`${BASE_URL}/api/users`)
@@ -23,6 +26,11 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   const swipeRight = async (id, idx, e) => {
     await axios.post(`${BASE_URL}/api/users/match/${userId}`, { matchId: id })
     getMatches()
+    setRightActive(true)
+  }
+
+  const swipeLeft = () => {
+    setLeftActive(true)
   }
 
   //credit for swipe animation: github- 3DJakob
@@ -88,21 +96,24 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
               {users
                 .sort(() => 0.5 - Math.random())
                 .map((user, index) => (
-                  <SwipeCard
-                    ref={childRefs[index]}
-                    className="swipe"
-                    key={user.id}
-                    onSwipe={(dir) => swiped(dir, user.id, index)}
-                    onCardLeftScreen={() => outOfFrame(user.id, index)}
-                  >
-                    <div className="swipeCard2">
-                      <ProfileCard
-                        user={user}
-                        key={user.id}
-                        swipeRight={() => swipeRight(user.id, index)}
-                      />
-                    </div>
-                  </SwipeCard>
+                  // <SwipeCard
+                  //   ref={childRefs[index]}
+                  //   className="swipe"
+                  //   key={user.id}
+                  //   onSwipe={(dir) => swiped(dir, user.id, index)}
+                  //   onCardLeftScreen={() => outOfFrame(user.id, index)}
+                  // >
+                  <div className="swipeCard2">
+                    <ProfileCard
+                      user={user}
+                      key={user.id}
+                      swipeRight={() => swipeRight(user.id, index)}
+                      swipeLeft={() => swipeLeft()}
+                      rightActive={rightActive}
+                      leftActive={leftActive}
+                    />
+                  </div>
+                  // </SwipeCard>
                 ))}
             </div>
           </div>
