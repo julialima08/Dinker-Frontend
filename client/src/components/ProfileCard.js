@@ -27,27 +27,30 @@ const ProfileCard = (props, { swipeRight }) => {
             alt={props.user.username}
           ></img>
         </div>
-        <div className="infoWrapper">
-          <h1>{props.user.username}</h1>
-          <div className="skills">{props.user.skills}</div>
+        <div className="userProfileInfo">
+          <div className="infoWrapper">
+            <div className="userSkillDiv">
+              <h1 className="userProfileName">{props.user.username}</h1>
+              <h1 className="skills">{props.user.skills}</h1>
+            </div>
+            <h2 className="userProfileAka">aka {props.user.name}</h2>
+          </div>
+          <div className="cardDivInfo">
+            <div className="userProjects">
+              My favorite project:{props.user.projects}
+            </div>
+            <div className="userSocial">
+              Social media:{props.user.socialLinks}
+            </div>
+          </div>
         </div>
       </div>
-      <img className="moreInfo" src="https://i.imgur.com/71LLr11.png" alt="">
-        {/* //onClick to pull up cardDivInfo??? */}
-      </img>
-      <div className="cardDivInfo">
-        <div className="userProjects">{props.user.projects}</div>
-        <div className="userSocial">{props.user.socialLinks}</div>
-      </div>
-      {props.user.id === user.id ? (
-        <div className="swipeButtons">Something</div>
-      ) : (
+      {props.user.id === user.id ? null : (
         <div className="swipeButtons">
           <img
             className="swipeLeft"
             src="https://i.imgur.com/TwVQBFx.png"
             alt=""
-            // onClick={swipeLeft}
           />
           <img
             className="moreInfo"

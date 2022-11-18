@@ -143,10 +143,10 @@ const UpdateProfile = ({ getMatches, matches }) => {
                 <option value="HTML">HTML</option>
                 <option value="CSS">CSSL</option>
                 <option value="JavaScript">JavaScript</option>
-                <option value="React">React</option>
-                <option value="MongoDB">MongoDB</option>
-                <option value="Express">Express</option>
-                <option value="PostgreSQL">PostgreSQL</option>
+                <option value="react">react revolutionary</option>
+                <option value="MongoDB">mongo madness</option>
+                <option value="Express">express expressions</option>
+                <option value="PostgreSQL">postgres positivity</option>
                 <option value="Sequelize">Sequelize</option>
                 <option value="Auth">Auth</option>
                 <option value="Vue">Vue.jsL</option>
