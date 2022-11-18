@@ -37,7 +37,6 @@ const UpdateProfile = ({ getMatches, matches }) => {
     const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
     setUser(response.data)
     setFormState(response.data)
-    // console.log(response.data)
   }
 
   useEffect(() => {

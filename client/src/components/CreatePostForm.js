@@ -2,16 +2,8 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import { createPost } from '../services/Auth'
-// import ReactCSSTransitionGroup from 'react-transition-group'
-// import styled from 'styled-components'
-// import useRainbow from './use-rainbow.hook'
-// import MagicRainbowButton from './MagicRainbowButton'
 
 const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
-  // useEffect(() => {
-  //   getPosts()
-  // }, [posts])
-
   const initialState = {
     title: '',
     body: '',
@@ -45,10 +37,6 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
     color: 'white',
     borderBottom: '4px solid #515867',
     transition: 'all 0.3s ease'
-    // ':focus': {
-    //   borderColor: 'white',
-    //   color: 'red'
-    // }
   }
   const skillsstyle = {
     width: '448px',
@@ -67,16 +55,12 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
 
   return (
     <div>
-      {/* <MagicRainbowButton> */}
       <h2 style={postformheader}>
         <img src={userAvatar} alt="no avatar"></img>
-        {/* <MagicRainbowButton> */}
         <div style={postformheadertext}>
           Hey {username}, need a dink to collaborate with?
         </div>
-        {/* </MagicRainbowButton> */}
       </h2>
-      {/* </MagicRainbowButton> */}
 
       <form onSubmit={handleSubmit}>
         <input
@@ -84,7 +68,6 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
           id="title"
           value={formState.title}
           placeholder="Title"
-          // required
           onChange={handleChange}
         />
         <input
@@ -92,7 +75,6 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
           id="body"
           value={formState.body}
           placeholder="Post body"
-          // required
           onChange={handleChange}
         />
 
@@ -122,7 +104,6 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
         </div>
 
         <button
-          // onClick={() => getPosts()}
           type="submit"
           disabled={
             !formState.title || !formState.body || formState.skills.length === 0

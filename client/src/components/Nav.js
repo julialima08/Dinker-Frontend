@@ -38,7 +38,6 @@ const Nav = ({ setUserId, matches, getMatches, viewMatchCard }) => {
                 className="userIcon"
                 src={userInfo.avatar}
                 alt={userInfo.username}
-                // onClick={() => navigate()}
               ></img>
               <h1 className="userName">{userInfo.name}</h1>
             </div>

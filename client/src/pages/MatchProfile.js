@@ -1,11 +1,5 @@
 import Nav from '../components/Nav'
-// import ProfileCard from '../components/ProfileCard'
 import '../CSS/Profile.css'
-// import { BASE_URL } from '../globals'
-// import { useState, useEffect } from 'react'
-// import { useParams, useNavigate } from 'react-router-dom'
-// import axios from 'axios'
-// import { propTypes } from '../animation code/swipeAnimation'
 
 const MatchProfile = ({
   matches,

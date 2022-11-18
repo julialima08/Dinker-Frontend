@@ -5,8 +5,6 @@ import { BASE_URL } from '../globals'
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import axios from 'axios'
 import SwipeCard from '../animation code/swipeAnimation'
-// import Draggable from 'react-draggable'
-// import 'animate.css'
 
 const Main = ({ getMatches, matches, viewMatchCard }) => {
   const [users, setUsers] = useState([])
@@ -15,7 +13,6 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   const [rightActive, setRightActive] = useState(false)
   const [leftActive, setLeftActive] = useState(false)
 
-  // console.log('viewMatchCard')
   const getUsers = async () => {
     const response = await axios.get(`${BASE_URL}/api/users`)
     setUsers(response.data)
@@ -41,7 +38,6 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   // credit for swipe animation: github- 3DJakob
 
   const outOfFrame = (id, idx) => {
-    // console.log(`${id} (${idx}) left the screen!`, currentIndexRef.current)
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
   }
   const currentIndexRef = useRef(currentIndex)
@@ -84,7 +80,7 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   }
 
   // end of animation code
-  // console.log('asd')
+
   return (
     <div className="swipePage">
       <div className="nav">
@@ -114,15 +110,12 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
                         key={user.id}
                         swipeRight={() => swipeRight(user.id, index)}
                         swipeLeft={() => swipeLeft()}
-                        // rightActive={rightActive}
-                        // leftActive={leftActive}
                       />
                     </div>
                   </SwipeCard>
                 ))}
             </div>
           </div>
-          <div className="buttons"></div>
         </div>
       </div>
     </div>

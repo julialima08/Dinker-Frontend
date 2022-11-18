@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Main from './pages/Main'
 import Posts from './pages/Posts'
-import CreatePostForm from './components/CreatePostForm'
 import Profile from './pages/Profile'
 import UpdateProfileForm from './components/UpdateProfileForm'
 import MatchProfile from './pages/MatchProfile'
@@ -12,7 +11,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from './globals'
 import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
 
 function App() {
   let navigate = useNavigate()
@@ -30,14 +28,11 @@ function App() {
     try {
       const res = await axios.get(`${BASE_URL}/api/users/${id}`)
       setSelectedMatch(res.data)
-    } catch (error) {
-      // console.log(error)
-    }
+    } catch (error) {}
   }
   const getPosts = async () => {
     const res = await axios.get(`${BASE_URL}/api/posts`)
     setPosts(res.data)
-    // console.log(res.data)
   }
   useEffect(() => {
     const token = localStorage.getItem('token')
