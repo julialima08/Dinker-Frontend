@@ -59,7 +59,7 @@ const Nav = ({ setUserId, matches, getMatches, viewMatchCard }) => {
                 className="logoutButton"
                 src="https://i.imgur.com/7RvwMJZ.png"
                 alt="logout"
-                onClick={() => navigate()}
+                onClick={() => navigate(`/`)}
               ></img>
               <img
                 className="postsButton"

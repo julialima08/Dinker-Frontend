@@ -24,28 +24,30 @@ const MatchProfile = ({
       </div>
       <div className="profile">
         {selectedMatch ? (
-          <div className="cardDiv">
-            <div className="cardDivFront">
-              <div className="imageWrapper">
-                <img
-                  className="userAvatar"
-                  src={selectedMatch.avatar}
-                  alt={selectedMatch.username}
-                ></img>
+          <div className="profileGrid">
+            <div className="profileCard">
+              <div className="cardDivFront">
+                <div className="imageWrapper">
+                  <img
+                    className="userAvatar"
+                    src={selectedMatch.avatar}
+                    alt={selectedMatch.username}
+                  ></img>
+                </div>
+                <div className="infoWrapper">
+                  <h1>{selectedMatch.username}</h1>
+                  <div className="skills">{selectedMatch.skills}</div>
+                </div>
               </div>
-              <div className="infoWrapper">
-                <h1>{selectedMatch.username}</h1>
-                <div className="skills">{selectedMatch.skills}</div>
+              <img
+                className="moreInfo"
+                src="https://i.imgur.com/71LLr11.png"
+                alt=""
+              ></img>
+              <div className="cardDivInfo">
+                <div className="userProjects">{selectedMatch.projects}</div>
+                <div className="userSocial">{selectedMatch.socialLinks}</div>
               </div>
-            </div>
-            <img
-              className="moreInfo"
-              src="https://i.imgur.com/71LLr11.png"
-              alt=""
-            ></img>
-            <div className="cardDivInfo">
-              <div className="userProjects">{selectedMatch.projects}</div>
-              <div className="userSocial">{selectedMatch.socialLinks}</div>
             </div>
           </div>
         ) : null}
