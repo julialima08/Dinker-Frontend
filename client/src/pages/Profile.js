@@ -38,7 +38,7 @@ const Profile = ({ getMatches, matches, viewMatchCard }) => {
               className="updateProfileButton"
               onClick={() => navigate('/updateprofile')}
             >
-              Update Profile?
+              Update Profile
             </button>
           </div>
         </div>

@@ -1,49 +1,3 @@
-.nav {
-  background-color: black;
-  color: white;
-  width: 33vw;
-  height: 100vh;
-}
-
-.userIconAndName {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-}
-
-.userIconAndName:hover {
-  background-color: black;
-  border-radius: 50px;
-}
-
-.userName {
-  margin: 0;
-  padding: 0 10px;
-}
-
-.userIcon {
-  background-color: white;
-  border-radius: 50px;
-}
-
-.userInfo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: gray;
-  padding: 10px 0 10px 0;
-}
-
-.logoutButton, .postsButton, .swipeButton {
-  padding: 2px;
-
-}
-
-/* ////// */
-
 #root {
   overflow-x: hidden;
 }
@@ -52,20 +6,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* width: 100vw; */
-}
-
-.swipePg {
-  width: 66vw;
-  grid-column: 2;
-  grid-row: 1;
+  height: 100vh;
 }
 
 .swipeGrid {
   width: 66vw;
+  height: 100vh;
   display: grid;
   align-items:center;
-
 }
 .swipe {
   position: absolute;
@@ -75,39 +23,38 @@
   grid-column: 1;
   grid-row: 1;
   place-self: center;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   background-color: #17181e;
   width: 400px;
   height: 600px;
   color: white;
   border-radius: 20px;
   position: relative;
+  margin: 38px 0px 0 4px;
 }
 
 .swipeCard2 {
+  grid-column: 1;
+  grid-row: 1;
+  place-self: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #17181e;
+  background-color: linear-gradient(to bottom, #17181e , black);
   width: 400px;
   height: 600px;
+  color: white;
   border-radius: 20px;
   overflow: auto;
   border: 2px solid #2a2c37;
-  margin: 18px 0 0 -2px;
 }
 
 .buttons {
   margin: 20px;
   display: flex;
   flex-wrap: wrap;
-}
-
-@media (max-width: 625px) {
-  .buttons {
-    flex-direction: column;
-  }
 }
 
 .buttons button {
@@ -129,5 +76,21 @@
   transform: scale(1.05);
 }
 
+.swipeButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 8px 60px 0 0;
+}
 
+.swipeLeft, .swipeRight {
+  padding: 0 40px;
+  height: 70px;
+  width: 70px;
 
+}
+
+.swipeLeft:hover, .swipeRight:hover {
+  transform: scale(1.2);
+  transition: 0.1s;
+}

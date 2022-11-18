@@ -1,9 +1,10 @@
 .nav {
   background-color: #17181e;
   color: white;
-  width: 33vw;
+  width: 462px;
   height: 100vh;
   border: 2px solid #2a2c37;
+  position: sticky;
 }
 
 .userIconAndName {
@@ -28,8 +29,8 @@
 }
 
 .userIcon {
-  background-color: hsl(0, 0%, 0%, .5);
-  border-radius: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .userInfo {
@@ -54,6 +55,7 @@
   flex-direction: row;
   align-items: center;
   text-align: left;
+  height: 100vh;
 }
 
 .update {
@@ -177,4 +179,14 @@
   padding: 5px 0 8px 10px;
   color: #94959d;
   font-size: 13px;
+}
+
+.logoutButton:hover, .postsButton:hover, .swipeButton:hover {
+  background-color: hsl(0, 0%, 0%, .5);
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.logoutButton, .postsButton, .swipeButton {
+  margin: 5px;
 }

@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 100vh;
 }
 
 .nav {
   background-color: #17181e;
   color: white;
-  width: 33vw;
+  /* width: 33vw; */
   height: 100vh;
 }
 
@@ -16,6 +17,7 @@
 }
 
 .profileGrid {
+  width: 66vw;
   height: 100vh;
   display: grid;
   align-items:center;
@@ -50,6 +52,7 @@
   text-align: left;
   padding: 0 0 0 70px;
   margin: -65px 0 0 0;
+  background-image: linear-gradient(rgba(255,0,0,0) , black , black);
 }
 
 .userProfileName {
@@ -90,8 +93,13 @@
   margin: 535px 0 0 0;
 }
 
-.cardDivInfo {
-  margin: 100px 0 0 0;
+.userProjects {
+  margin: 85px 0 10PX 0;
+  color: #94959d;
+}
+
+.userSocial {
+  color: #94959d;
 }
 
 .infoWrapper {
@@ -101,4 +109,9 @@
 
 .cardDiv {
   background-image: linear-gradient(#17181e , #17181e , black);
+  height: 600px;
+}
+
+.cardDivInfo {
+  margin: 0 0 100px 0;
 }

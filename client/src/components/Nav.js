@@ -45,19 +45,19 @@ const Nav = ({ setUserId, matches, getMatches, viewMatchCard }) => {
             <div className="userInfoButtons">
               <img
                 className="logoutButton"
-                src="https://i.imgur.com/7RvwMJZ.png"
+                src="https://i.imgur.com/JOosYw8.png"
                 alt="logout"
                 onClick={() => navigate(`/`)}
               ></img>
               <img
                 className="postsButton"
-                src="https://i.imgur.com/aWrwP5x.png"
+                src="https://i.imgur.com/OLlNs9E.png"
                 alt="posts"
                 onClick={() => navigate(`/post`)}
               ></img>
               <img
                 className="swipeButton"
-                src="https://i.imgur.com/MBF6BjS.png"
+                src="https://i.imgur.com/HlL3t8k.png"
                 alt="swipe"
                 onClick={() => navigate(`/main`)}
               ></img>

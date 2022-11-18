@@ -28,14 +28,19 @@ const LoginForm = ({ setUser }) => {
           onChange={handleChange}
           value={formValues.email}
           name="email"
+          className="input"
         />
         <input
           placeholder="Password"
           onChange={handleChange}
           value={formValues.password}
           name="password"
+          className="input"
         />
-        <button disabled={!formValues.email || !formValues.password}>
+        <button
+          disabled={!formValues.email || !formValues.password}
+          className="button"
+        >
           Login
         </button>
       </form>
