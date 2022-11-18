@@ -82,4 +82,6 @@
 
 #### Color Palettes: [Colors](https://coolors.co/fa8334-fffd77-ffe882-388697-271033)
 
+#### Magical Rainbow Gradients: [Rainbow Magic](https://twitter.com/JoshWComeau)
+
 ---
