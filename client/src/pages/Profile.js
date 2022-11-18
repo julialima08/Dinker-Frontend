@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Profile = ({ getMatches, matches }) => {
+const Profile = ({ getMatches, matches, viewMatchCard }) => {
   let navigate = useNavigate()
 
   const [user, setUser] = useState([])
@@ -24,13 +24,22 @@ const Profile = ({ getMatches, matches }) => {
   return (
     <div className="profilePage">
       <div className="nav">
-        <Nav getMatches={getMatches} matches={matches} />
+        <Nav
+          viewMatchCard={viewMatchCard}
+          getMatches={getMatches}
+          matches={matches}
+        />
       </div>
       <div className="profile">
         <div className="profileGrid">
           <div className="profileCard">
             <ProfileCard user={user} />
-            <h5 onClick={() => navigate('/updateprofile')}>Update Profile?</h5>
+            <button
+              className="updateProfileButton"
+              onClick={() => navigate('/updateprofile')}
+            >
+              Update Profile?
+            </button>
           </div>
         </div>
       </div>

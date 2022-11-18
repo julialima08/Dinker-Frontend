@@ -27,7 +27,9 @@
   place-self: center;
   display: flex;
   flex-direction: column;
-  background-color: #17181e;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: linear-gradient(to bottom, #17181e , black);
   width: 400px;
   height: 600px;
   color: white;
@@ -37,7 +39,66 @@
 }
 
 .userAvatar {
-  height: 250px;
+  height: 450px;
+  width: 450px;
+  padding: 10px;
+}
+
+.userProfileInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 0 0 70px;
+  margin: -65px 0 0 0;
+}
+
+.userProfileName {
+  font-weight: 500;
+}
+
+.userSkillDiv {
+  display: flex;
+}
+
+.skills {
+  padding: 0 10px;
+  font-weight: 100;
+}
+
+.userProfileAka {
+  margin: -20px 0 0 0;
+  font-weight: 100;
+  color: #94959d;
+  font-size: 20px;
+}
+
+.updateProfileButton {
+  color: white;
+  border: 1px solid #2a2c37;
+  height: 45px;
+  background-image: linear-gradient(to right, #e55ae2 , #ee1908);
+  border-radius: 50px;
+  border: none;
   width: 250px;
-  padding: 20px;
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-family: 'Figtree', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: .8px;
+  position: fixed;
+  margin: 535px 0 0 0;
+}
+
+.cardDivInfo {
+  margin: 100px 0 0 0;
+}
+
+.infoWrapper {
+  border-bottom: 1px solid #94959d;
+  padding: 0 0 20px 0;
+}
+
+.cardDiv {
+  background-image: linear-gradient(#17181e , #17181e , black);
 }

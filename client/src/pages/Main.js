@@ -83,25 +83,27 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
       </div>
       <div className="swipePg">
         <div className="swipeGrid">
-          {users
-            .sort(() => 0.5 - Math.random())
-            .map((user, index) => (
-              <SwipeCard
-                ref={childRefs[index]}
-                className="swipe"
-                key={user.id}
-                onSwipe={(dir) => swiped(dir, user.id, index)}
-                onCardLeftScreen={() => outOfFrame(user.id, index)}
-              >
-                <div className="swipeCard">
-                  <ProfileCard
-                    user={user}
-                    key={user.id}
-                    swipeRight={() => swipeRight(user.id, index)}
-                  />
-                </div>
-              </SwipeCard>
-            ))}
+          <div className="swipeCard">
+            {users
+              .sort(() => 0.5 - Math.random())
+              .map((user, index) => (
+                <SwipeCard
+                  ref={childRefs[index]}
+                  className="swipe"
+                  key={user.id}
+                  onSwipe={(dir) => swiped(dir, user.id, index)}
+                  onCardLeftScreen={() => outOfFrame(user.id, index)}
+                >
+                  <div className="swipeCard2">
+                    <ProfileCard
+                      user={user}
+                      key={user.id}
+                      swipeRight={() => swipeRight(user.id, index)}
+                    />
+                  </div>
+                </SwipeCard>
+              ))}
+          </div>
         </div>
         <div className="buttons"></div>
       </div>

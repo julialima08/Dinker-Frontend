@@ -82,7 +82,13 @@ function App() {
           />
           <Route
             path="/profile"
-            element={<Profile getMatches={getMatches} matches={matches} />}
+            element={
+              <Profile
+                viewMatchCard={viewMatchCard}
+                getMatches={getMatches}
+                matches={matches}
+              />
+            }
           />
           <Route
             path="/updateprofile"
