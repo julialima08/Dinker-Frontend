@@ -74,7 +74,7 @@ const RegisterForm = ({ setIsVisible }) => {
             !newUser.confirmPassword) ||
             newUser.confirmPassword !== newUser.password
           }
-          className="button"
+          className="button2"
         >
           Create Account
         </button>
