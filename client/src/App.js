@@ -14,7 +14,7 @@ import { BASE_URL } from './globals'
 import { useNavigate } from 'react-router-dom'
 function App() {
   let navigate = useNavigate()
-
+  const [posts, setPosts] = useState([])
   const [user, setUser] = useState(null)
   const [matches, setMatches] = useState([])
   const [selectedMatch, setSelectedMatch] = useState({})
@@ -32,6 +32,10 @@ function App() {
       console.log(error)
     }
   }
+  const getPosts = async () => {
+    const res = await axios.get(`${BASE_URL}/api/posts`)
+    setPosts(res.data)
+  }
   useEffect(() => {
     const token = localStorage.getItem('token')
     getMatches()
@@ -39,7 +43,6 @@ function App() {
       checkToken()
     }
   }, [])
-
   let userId = localStorage.getItem('id')
 
   const getMatches = async () => {
@@ -66,7 +69,15 @@ function App() {
           />
           <Route
             path="/post"
-            element={<Posts getMatches={getMatches} matches={matches} />}
+            element={
+              <Posts
+                posts={posts}
+                getPosts={getPosts}
+                viewMatchCard={viewMatchCard}
+                getMatches={getMatches}
+                matches={matches}
+              />
+            }
           />
           <Route
             path="/createpost"

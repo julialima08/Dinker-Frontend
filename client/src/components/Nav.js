@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Match from '../pages/Match'
@@ -7,25 +6,14 @@ import { BASE_URL } from '../globals'
 import '../CSS/Nav.css'
 
 const Nav = ({ setUserId, matches, getMatches, viewMatchCard }) => {
-  // let userId
-  console.log(viewMatchCard)
   const [userInfo, setUserInfo] = useState(null)
-
-  // const [matches, setMatches] = useState([])
 
   const getUserInfo = async (data) => {
     let userId = localStorage.getItem('id')
 
     const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
     setUserInfo(response.data)
-    // console.log(response.data)
   }
-
-  // const getMatches = async () => {
-  //   const response = await axios.get(`${BASE_URL}/api/users/${userId}/matches`)
-
-  //   setMatches(response.data.user.matches)
-  // }
 
   const viewMatch = (id) => {
     navigate()
