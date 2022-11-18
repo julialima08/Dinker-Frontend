@@ -80,8 +80,8 @@
 
 #### Profile Characters: [Pixel Avatars](https://www.avatarsinpixels.com/chibi/clothing/Pants)
 
-#### Color Palettes: [Colors](https://coolors.co/fa8334-fffd77-ffe882-388697-271033)
+#### Color Palettes: [Coolors](https://coolors.co/fa8334-fffd77-ffe882-388697-271033)
 
-#### Magical Rainbow Gradients: [Rainbow Magic](https://twitter.com/JoshWComeau)
+#### Magical Rainbow Gradients: [Josh W Comeau](https://twitter.com/JoshWComeau)
 
 ---
