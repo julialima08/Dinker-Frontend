@@ -2,7 +2,10 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import { createPost } from '../services/Auth'
-import Posts from '../pages/Posts'
+// import ReactCSSTransitionGroup from 'react-transition-group'
+import styled from 'styled-components'
+import useRainbow from './use-rainbow.hook'
+import MagicRainbowButton from './MagicRainbowButton'
 
 const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
   // useEffect(() => {
@@ -26,19 +29,58 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
   }
   const postformheader = {}
   const postformheadertext = {
-    backgroundColor: 'red'
+    color: 'white',
+    textShadow: '-2px 0 black, 0 2px black, 2px 0 black, 0 -2px black'
+  }
+
+  const formstyle = {
+    width: '400px',
+    margin: '0.75rem 0',
+    padding: '0.75rem 1.5rem',
+    outline: 'none',
+    fontSize: '1.5em',
+    borderRadius: '10px',
+    backgroundColor: 'black',
+    border: 'none',
+    color: 'white',
+    borderBottom: '4px solid #515867',
+    transition: 'all 0.3s ease'
+    // ':focus': {
+    //   borderColor: 'white',
+    //   color: 'red'
+    // }
+  }
+  const skillsstyle = {
+    width: '448px',
+    height: '50px',
+    margin: '0.75rem 0',
+    padding: '0.75rem 1.5rem',
+    outline: 'none',
+    fontSize: '1.5em',
+    borderRadius: '10px',
+    backgroundColor: 'black',
+    border: 'none',
+    color: 'white',
+    borderBottom: '4px solid #515867',
+    transition: 'all 0.3s ease'
   }
 
   return (
     <div>
+      {/* <MagicRainbowButton> */}
       <h2 style={postformheader}>
         <img src={userAvatar} alt="no avatar"></img>
+        {/* <MagicRainbowButton> */}
         <div style={postformheadertext}>
           Hey {username}, need a dink to collaborate with?
         </div>
+        {/* </MagicRainbowButton> */}
       </h2>
+      {/* </MagicRainbowButton> */}
+
       <form onSubmit={handleSubmit}>
         <input
+          style={formstyle}
           id="title"
           value={formState.title}
           placeholder="Title"
@@ -46,17 +88,18 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
           onChange={handleChange}
         />
         <input
+          style={formstyle}
           id="body"
           value={formState.body}
           placeholder="Post body"
           // required
           onChange={handleChange}
         />
+
         <div className="formDiv">
-          <label htmlFor="skills" className="formLabel">
-            PRIMARY SKILL
-          </label>
+          <label htmlFor="skills" className="formLabel"></label>
           <select
+            style={skillsstyle}
             onChange={handleChange}
             type="checkbox"
             id="skills"
@@ -77,6 +120,7 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
             <option value="Flask">Flask</option>
           </select>
         </div>
+
         <button
           // onClick={() => getPosts()}
           type="submit"
