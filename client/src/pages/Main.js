@@ -5,11 +5,14 @@ import { BASE_URL } from '../globals'
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import axios from 'axios'
 import SwipeCard from '../animation code/swipeAnimation'
+
 const Main = ({ getMatches, matches, viewMatchCard }) => {
   const [users, setUsers] = useState([])
   const [currentIndex, setCurrentIndex] = useState(users.length - 1)
   const [lastDirection, setLastDirection] = useState()
-  // console.log('viewMatchCard')
+  const [rightActive, setRightActive] = useState(false)
+  const [leftActive, setLeftActive] = useState(false)
+
   const getUsers = async () => {
     const response = await axios.get(`${BASE_URL}/api/users`)
     setUsers(response.data)
@@ -18,17 +21,23 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   useEffect(() => {
     getUsers()
   }, [])
+
   let userId = localStorage.getItem('id')
 
   const swipeRight = async (id, idx, e) => {
     await axios.post(`${BASE_URL}/api/users/match/${userId}`, { matchId: id })
+    setRightActive(true)
     getMatches()
+    setRightActive(false)
   }
 
-  //credit for swipe animation: github- 3DJakob
+  const swipeLeft = () => {
+    setLeftActive((prevLeftActive) => !prevLeftActive)
+  }
+
+  // credit for swipe animation: github- 3DJakob
 
   const outOfFrame = (id, idx) => {
-    // console.log(`${id} (${idx}) left the screen!`, currentIndexRef.current)
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
   }
   const currentIndexRef = useRef(currentIndex)
@@ -71,7 +80,7 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   }
 
   // end of animation code
-  // console.log('asd')
+
   return (
     <div className="swipePage">
       <div className="nav">
@@ -100,13 +109,13 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
                         user={user}
                         key={user.id}
                         swipeRight={() => swipeRight(user.id, index)}
+                        swipeLeft={() => swipeLeft()}
                       />
                     </div>
                   </SwipeCard>
                 ))}
             </div>
           </div>
-          <div className="buttons"></div>
         </div>
       </div>
     </div>

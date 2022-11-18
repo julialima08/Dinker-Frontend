@@ -8,7 +8,6 @@
 .nav {
   background-color: #17181e;
   color: white;
-  /* width: 33vw; */
   height: 100vh;
 }
 
@@ -29,7 +28,6 @@
   place-self: center;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   background-color: linear-gradient(to bottom, #17181e , black);
   width: 400px;
