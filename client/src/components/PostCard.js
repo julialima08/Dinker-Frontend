@@ -1,8 +1,15 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { BASE_URL } from '../globals'
-
 const PostCard = (props) => {
+  for (let i = 0; i <= 5; i++) {
+    let r = Math.floor(Math.random() * 230)
+    let g = Math.floor(Math.random() * 255)
+    let b = Math.floor(Math.random() * 235)
+    var randomColor = 'rgba(' + r + ',' + g + ',' + b + ')'
+  }
+
+  const a = 'hsl(0deg, 96%, 55%)'
+  const b = 'hsl(25deg, 100%, 50%)'
+  const c = 'hsl(40deg, 100%, 50%)'
+
   const postCardStyle = {
     display: 'inlineBlock',
     fontSize: '12px',
@@ -16,7 +23,14 @@ const PostCard = (props) => {
     margin: '0 auto 20px auto',
     padding: '0 16px 16px 16px',
     maxWidth: '468px',
-    textAlign: 'left'
+    textAlign: 'left',
+    color: 'black',
+    background: `linear-gradient(170deg,${randomColor},${b})`,
+    transition: `${a} 3s ease-in, ${b} 4s ease-in, ${c} 2s ease-out`
+    //////trans 2
+    // transition: `${randomColor} 3s ease-in, ${a} 3s ease-out, ${b} 3s ease-in`
+    ///////trans 1
+    // transition: 'color 3s ease-in, background-color 1s ease-in'
   }
   const hOne = {}
   const pStyle = {
