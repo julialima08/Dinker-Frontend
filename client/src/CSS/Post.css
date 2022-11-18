@@ -14,3 +14,11 @@
 body {
   font-family: 'Chakra Petch', sans-serif;
 }
+
+.avatar {
+display: flex;
+}
+
+.avatar img {
+  margin-right: 8px;
+}

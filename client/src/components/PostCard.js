@@ -41,8 +41,11 @@ const PostCard = (props) => {
 
   return (
     <div className="PostCard" style={postCardStyle}>
-      <img src={props.userAvatar}></img>
-      <p>{props.username}</p>
+      <div className="avatar">
+        <img src={props.userAvatar}></img>
+        <p>{props.username}</p>
+      </div>
+
       <h1 style={hOne}>{`${props.posts.title}`}</h1>
       <p style={pStyle}>{`${props.posts.body}`}</p>
       <p style={pStyle}>{`${props.posts.skills}`}</p>
