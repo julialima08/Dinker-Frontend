@@ -30,7 +30,7 @@ const ProfileCard = (props) => {
         <div className="userProfileInfo">
           <div className="infoWrapper">
             <div className="userSkillDiv">
-              <h1 className="userProfileName">{props.user.username}</h1>
+              <h1 className="userProfileName">{props.user.username} |</h1>
               <h1 className="skills">{props.user.skills}</h1>
             </div>
             <h2 className="userProfileAka">aka {props.user.name}</h2>
