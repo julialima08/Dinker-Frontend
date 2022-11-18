@@ -2,6 +2,7 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import { createPost } from '../services/Auth'
+import '../CSS/Post.css'
 
 const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
   const initialState = {
@@ -105,6 +106,7 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
 
         <button
           type="submit"
+          className="button"
           disabled={
             !formState.title || !formState.body || formState.skills.length === 0
           }
