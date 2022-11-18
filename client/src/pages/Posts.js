@@ -5,13 +5,7 @@ import { BASE_URL } from '../globals'
 import Nav from '../components/Nav'
 import CreatePostForm from '../components/CreatePostForm'
 
-const Posts = ({ getMatches, matches }) => {
-  const [Posts, setPosts] = useState([])
-  const getPosts = async () => {
-    const res = await axios.get(`${BASE_URL}/api/posts`)
-    setPosts(res.data)
-  }
-
+const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
   const [users, setUsers] = useState([])
   const getUsers = async () => {
     const response = await axios.get(`${BASE_URL}/api/users/`)
@@ -60,21 +54,29 @@ const Posts = ({ getMatches, matches }) => {
   return (
     <div className="PostsPage">
       <div className="nav" style={postNavStyle}>
-        <Nav getMatches={getMatches} matches={matches} />
+        <Nav
+          viewMatchCard={viewMatchCard}
+          getMatches={getMatches}
+          matches={matches}
+        />
       </div>
-      <div className="postGrid" style={postgridstyle}>
-        <div className="createpost" style={addPost}>
-          <CreatePostForm getPosts={getPosts} />
-        </div>
-        <div className="futureAddSpace" style={futureAddSpaceStyle}>
-          <h5>future add space</h5>
-        </div>
-        {Posts.sort((a, b) => b.id - a.id).map((Posts) => (
-          <div className="postCard">
-            <PostCard users={users} Posts={Posts} key={Posts.id} />
+      {posts ? (
+        <div className="postGrid" style={postgridstyle}>
+          <div className="createpost" style={addPost}>
+            <CreatePostForm getPosts={getPosts} posts={posts} />
           </div>
-        ))}
-      </div>
+          <div className="futureAddSpace" style={futureAddSpaceStyle}>
+            <h5>future add space</h5>
+          </div>
+          {posts
+            .sort((a, b) => b.id - a.id)
+            .map((post) => (
+              <div className="postCard">
+                <PostCard users={users} posts={post} key={post.id} />
+              </div>
+            ))}
+        </div>
+      ) : null}
     </div>
   )
 }

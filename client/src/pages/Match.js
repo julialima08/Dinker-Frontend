@@ -7,7 +7,6 @@ import MatchProfile from './MatchProfile'
 import '../CSS/Match.css'
 
 const Match = ({ getMatches, matches, viewMatchCard }) => {
-  console.log(viewMatchCard)
   return (
     <div>
       <div className="matchesMap">

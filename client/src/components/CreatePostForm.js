@@ -2,10 +2,10 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import { createPost } from '../services/Auth'
-// import { useNavigate } from 'react-router-dom'
+import Posts from '../pages/Posts'
 let userId = localStorage.getItem('id')
 
-const CreatePostForm = (props) => {
+const CreatePostForm = ({ getPosts, posts }) => {
   const [userInfo, setUserInfo] = useState(null)
   const [userAvatar, setUserAvatar] = useState(null)
 
@@ -16,10 +16,8 @@ const CreatePostForm = (props) => {
   }
   useEffect(() => {
     getUserInfo()
-  }, [])
-  // useEffect(() => {
-  //   props.getPosts()
-  // }, [])
+    getPosts()
+  }, [posts])
 
   const initialState = {
     title: '',
@@ -87,6 +85,7 @@ const CreatePostForm = (props) => {
           </select>
         </div>
         <button
+          onClick={() => getPosts()}
           type="submit"
           disabled={
             !formState.title || !formState.body || formState.skills.length === 0
@@ -94,7 +93,6 @@ const CreatePostForm = (props) => {
         >
           Submit New Post!
         </button>
-        {/* <button type="submit">Submit New Post!</button> */}
       </form>
     </div>
   )

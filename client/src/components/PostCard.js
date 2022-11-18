@@ -41,10 +41,10 @@ const PostCard = (props) => {
   // console.log(userz)
   return (
     <div className="PostCard" style={postCardStyle}>
-      <h1 style={hOne}>{`${props.Posts.title}`}</h1>
-      <p style={pStyle}>{`${props.Posts.body}`}</p>
-      <p style={pStyle}>{`${props.Posts.skills}`}</p>
-      <p style={pStyle}>{`${props.Posts.creatorId}`}</p>
+      <h1 style={hOne}>{`${props.posts.title}`}</h1>
+      <p style={pStyle}>{`${props.posts.body}`}</p>
+      <p style={pStyle}>{`${props.posts.skills}`}</p>
+      <p style={pStyle}>{`${props.posts.creatorId}`}</p>
     </div>
   )
 }
