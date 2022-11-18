@@ -6,9 +6,9 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import '../CSS/Nav.css'
 
-const Nav = ({ setUserId, matches, getMatches }) => {
+const Nav = ({ setUserId, matches, getMatches, viewMatchCard }) => {
   // let userId
-
+  console.log(viewMatchCard)
   const [userInfo, setUserInfo] = useState(null)
 
   // const [matches, setMatches] = useState([])
@@ -36,10 +36,6 @@ const Nav = ({ setUserId, matches, getMatches }) => {
   useEffect(() => {
     getUserInfo()
   }, [])
-
-  // useEffect(() => {
-  //   getMatches()
-  // }, [matches])
 
   return (
     <>
@@ -80,7 +76,11 @@ const Nav = ({ setUserId, matches, getMatches }) => {
             </div>
           </div>
           <div className="matches">
-            <Match getMatches={getMatches} matches={matches} />
+            <Match
+              viewMatchCard={viewMatchCard}
+              getMatches={getMatches}
+              matches={matches}
+            />
           </div>
         </div>
       ) : null}

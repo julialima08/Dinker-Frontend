@@ -6,15 +6,8 @@ import { BASE_URL } from '../globals'
 import MatchProfile from './MatchProfile'
 import '../CSS/Match.css'
 
-const Match = ({ getMatches, matches }) => {
-  let navigate = useNavigate()
-
-  let { matchesid } = useParams()
-
-  const viewMatchCard = (id) => {
-    navigate(`/users/${id}`)
-  }
-
+const Match = ({ getMatches, matches, viewMatchCard }) => {
+  console.log(viewMatchCard)
   return (
     <div>
       <div className="matchesMap">
@@ -25,7 +18,7 @@ const Match = ({ getMatches, matches }) => {
             avatar={match.avatar}
             name={match.name}
             username={match.username}
-            onClick={viewMatchCard}
+            onClick={() => viewMatchCard(match.id)}
           />
         ))}
       </div>

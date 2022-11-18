@@ -11,15 +11,27 @@ import { CheckSession } from './services/Auth'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from './globals'
+import { useNavigate } from 'react-router-dom'
 function App() {
+  let navigate = useNavigate()
+
   const [user, setUser] = useState(null)
   const [matches, setMatches] = useState([])
+  const [selectedMatch, setSelectedMatch] = useState({})
 
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
   }
-
+  const viewMatchCard = async (id) => {
+    navigate(`/users/${id}`)
+    try {
+      const res = await axios.get(`${BASE_URL}/api/users/${id}`)
+      setSelectedMatch(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   useEffect(() => {
     const token = localStorage.getItem('token')
     getMatches()
@@ -44,7 +56,13 @@ function App() {
           <Route path="/" element={<Home setUser={setUser} />} />
           <Route
             path="/main"
-            element={<Main getMatches={getMatches} matches={matches} />}
+            element={
+              <Main
+                viewMatchCard={viewMatchCard}
+                getMatches={getMatches}
+                matches={matches}
+              />
+            }
           />
           <Route
             path="/post"
@@ -68,7 +86,14 @@ function App() {
           />
           <Route
             path="/users/:id"
-            element={<MatchProfile getMatches={getMatches} matches={matches} />}
+            element={
+              <MatchProfile
+                viewMatchCard={viewMatchCard}
+                selectedMatch={selectedMatch}
+                getMatches={getMatches}
+                matches={matches}
+              />
+            }
           />
         </Routes>
       </main>
