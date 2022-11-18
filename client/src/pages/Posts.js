@@ -4,16 +4,21 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import Nav from '../components/Nav'
 import CreatePostForm from '../components/CreatePostForm'
+let userId = localStorage.getItem('id')
 
 const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
-  const [users, setUsers] = useState([])
+  const [username, setUsername] = useState(null)
+  const [userAvatar, setUserAvatar] = useState(null)
   const getUsers = async () => {
-    const response = await axios.get(`${BASE_URL}/api/users/`)
-    setUsers(response.data)
+    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
+    setUserAvatar(response.data.avatar)
+    setUsername(response.data.username)
   }
+  // getPosts()
+
   useEffect(() => {
-    getUsers()
     getPosts()
+    getUsers()
   }, [])
 
   const postNavStyle = {
@@ -48,7 +53,6 @@ const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
     width: '67vw',
     float: 'right'
   }
-  // console.log(getPosts)
 
   return (
     <div className="PostsPage">
@@ -62,7 +66,12 @@ const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
       {posts ? (
         <div className="postGrid" style={postgridstyle}>
           <div className="createpost" style={addPost}>
-            <CreatePostForm getPosts={getPosts} posts={posts} />
+            <CreatePostForm
+              username={username}
+              userAvatar={userAvatar}
+              getPosts={getPosts}
+              posts={posts}
+            />
           </div>
           <div className="futureAddSpace" style={futureAddSpaceStyle}>
             <h5>future add space</h5>
@@ -71,7 +80,12 @@ const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
             .sort((a, b) => b.id - a.id)
             .map((post) => (
               <div className="postCard">
-                <PostCard users={users} posts={post} key={post.id} />
+                <PostCard
+                  username={username}
+                  userAvatar={userAvatar}
+                  posts={post}
+                  key={post.id}
+                />
               </div>
             ))}
         </div>

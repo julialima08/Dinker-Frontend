@@ -29,7 +29,7 @@ function App() {
       const res = await axios.get(`${BASE_URL}/api/users/${id}`)
       setSelectedMatch(res.data)
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   }
   const getPosts = async () => {
@@ -78,12 +78,6 @@ function App() {
                 getMatches={getMatches}
                 matches={matches}
               />
-            }
-          />
-          <Route
-            path="/createpost"
-            element={
-              <CreatePostForm getMatches={getMatches} matches={matches} />
             }
           />
           <Route

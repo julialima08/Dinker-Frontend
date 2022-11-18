@@ -9,7 +9,7 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   const [users, setUsers] = useState([])
   const [currentIndex, setCurrentIndex] = useState(users.length - 1)
   const [lastDirection, setLastDirection] = useState()
-  console.log('viewMatchCard')
+  // console.log('viewMatchCard')
   const getUsers = async () => {
     const response = await axios.get(`${BASE_URL}/api/users`)
     setUsers(response.data)
@@ -28,7 +28,7 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   //credit for swipe animation: github- 3DJakob
 
   const outOfFrame = (id, idx) => {
-    console.log(`${id} (${idx}) left the screen!`, currentIndexRef.current)
+    // console.log(`${id} (${idx}) left the screen!`, currentIndexRef.current)
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
   }
   const currentIndexRef = useRef(currentIndex)
@@ -71,7 +71,7 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   }
 
   // end of animation code
-  console.log('asd')
+  // console.log('asd')
   return (
     <div className="swipePage">
       <div className="nav">

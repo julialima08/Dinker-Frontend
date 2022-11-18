@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-let userId = localStorage.getItem('id')
 
 const PostCard = (props) => {
   const postCardStyle = {
@@ -26,21 +25,10 @@ const PostCard = (props) => {
     lineHeight: '20px'
   }
 
-  const [userInfo, setUserInfo] = useState(null)
-  const [userAvatar, setUserAvatar] = useState(null)
-  const getUsers = async () => {
-    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
-    setUserAvatar(response.data.avatar)
-    setUserInfo(response.data.username)
-  }
-  useEffect(() => {
-    getUsers()
-  }, [])
-
   return (
     <div className="PostCard" style={postCardStyle}>
-      <img src={userAvatar}></img>
-      <p>{userInfo}</p>
+      <img src={props.userAvatar}></img>
+      <p>{props.username}</p>
       <h1 style={hOne}>{`${props.posts.title}`}</h1>
       <p style={pStyle}>{`${props.posts.body}`}</p>
       <p style={pStyle}>{`${props.posts.skills}`}</p>
