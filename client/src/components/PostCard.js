@@ -28,7 +28,7 @@ const PostCard = (props) => {
     background: `linear-gradient(170deg,${randomColor},${b})`,
     transition: `${a} 3s ease-in, ${b} 4s ease-in, ${c} 2s ease-out`
     //////trans 2
-    // transition: `${div} 3s ease-in, ${a} 3s ease-out, ${b} 3s ease-in`
+    // transition: `${randomColor} 3s ease-in, ${a} 3s ease-out, ${b} 3s ease-in`
     ///////trans 1
     // transition: 'color 3s ease-in, background-color 1s ease-in'
   }

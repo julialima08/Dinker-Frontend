@@ -50,7 +50,20 @@ const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
     //   color: 'red'
     // }
   }
-  const skillsstyle = {}
+  const skillsstyle = {
+    width: '448px',
+    height: '50px',
+    margin: '0.75rem 0',
+    padding: '0.75rem 1.5rem',
+    outline: 'none',
+    fontSize: '1.5em',
+    borderRadius: '10px',
+    backgroundColor: 'black',
+    border: 'none',
+    color: 'white',
+    borderBottom: '4px solid #515867',
+    transition: 'all 0.3s ease'
+  }
 
   return (
     <div>
