@@ -11,31 +11,34 @@ import { CheckSession } from './services/Auth'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from './globals'
+import { useNavigate } from 'react-router-dom'
 function App() {
+  let navigate = useNavigate()
+
   const [user, setUser] = useState(null)
   const [matches, setMatches] = useState([])
-  const [matcheeId, setMatcheeId] = useState(null)
-
-  const findMatcheeId = () => {
-    let matchId = window.location.href.split('/').reverse()[0]
-    console.log(matchId)
-    setMatcheeId(matchId)
-  }
+  const [selectedMatch, setSelectedMatch] = useState({})
 
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
   }
-
+  const viewMatchCard = async (id) => {
+    navigate(`/users/${id}`)
+    try {
+      const res = await axios.get(`${BASE_URL}/api/users/${id}`)
+      setSelectedMatch(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   useEffect(() => {
     const token = localStorage.getItem('token')
     getMatches()
-    findMatcheeId()
     if (token) {
       checkToken()
     }
   }, [])
-  console.log(matcheeId)
   let userId = localStorage.getItem('id')
 
   const getMatches = async () => {
@@ -54,9 +57,9 @@ function App() {
             path="/main"
             element={
               <Main
+                viewMatchCard={viewMatchCard}
                 getMatches={getMatches}
                 matches={matches}
-                matcheeId={matcheeId}
               />
             }
           />
@@ -84,9 +87,10 @@ function App() {
             path="/users/:id"
             element={
               <MatchProfile
+                viewMatchCard={viewMatchCard}
+                selectedMatch={selectedMatch}
                 getMatches={getMatches}
                 matches={matches}
-                matcheeId={matcheeId}
               />
             }
           />

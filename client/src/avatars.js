@@ -21,8 +21,8 @@ const avatars = [
   { name: '20', url: 'https://i.imgur.com/gt11CSo.png' },
   { name: '21', url: 'https://i.imgur.com/olx6gTn.png' },
   { name: '22', url: 'https://i.imgur.com/LFEzLyc.png' },
-  { name: '23', url: 'https://i.imgur.com/rU1ImsL.jpg' },
-  { name: '24', url: 'https://i.imgur.com/4eR6bpO.jpg' }
+  { name: '23', url: 'https://i.imgur.com/cx9Wc3s.png' },
+  { name: '24', url: 'https://i.imgur.com/CifPJmW.png' }
 ]
 
 export default avatars

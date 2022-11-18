@@ -5,10 +5,14 @@ import { BASE_URL } from '../globals'
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import axios from 'axios'
 import SwipeCard from '../animation code/swipeAnimation'
+console.log('banan')
+const Main = ({ getMatches, matches, viewMatchCard }) => {
+  console.log('appl')
 
-const Main = ({ getMatches, matches, matcheeId }) => {
   const [users, setUsers] = useState([])
-
+  const [currentIndex, setCurrentIndex] = useState(users.length - 1)
+  const [lastDirection, setLastDirection] = useState()
+  console.log('viewMatchCard')
   const getUsers = async () => {
     const response = await axios.get(`${BASE_URL}/api/users`)
     setUsers(response.data)
@@ -18,17 +22,6 @@ const Main = ({ getMatches, matches, matcheeId }) => {
     getUsers()
   }, [])
   let userId = localStorage.getItem('id')
-  console.log(matcheeId)
-  // const [matches, setMatches] = useState([])
-
-  // let userId = localStorage.getItem('id')
-
-  // const getMatches = async () => {
-  //   const response = await axios.get(
-  //     `${BASE_URL}/api/users/usermatches/${userId}`
-  //   )
-  //   setMatches(response.data.matchees)
-  // }
 
   const swipeRight = async (id, idx, e) => {
     await axios.post(`${BASE_URL}/api/users/match/${userId}`, { matchId: id })
@@ -37,18 +30,9 @@ const Main = ({ getMatches, matches, matcheeId }) => {
 
   //credit for swipe animation: github- 3DJakob
 
-  const [currentIndex, setCurrentIndex] = useState(users.length - 1)
-  const [lastDirection, setLastDirection] = useState()
-
   const outOfFrame = (id, idx) => {
     console.log(`${id} (${idx}) left the screen!`, currentIndexRef.current)
-    // handle the case in which go back is pressed before card goes outOfFrame
     currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
-    // const res = await axios.get(`${BASE_URL}/api/users/${idx}`)
-    // const id = parseInt(Object.values(idx))
-    // console.log(idx)
-    // setMatchId({ matchId: id })
-    // swipeRight()
   }
   const currentIndexRef = useRef(currentIndex)
 
@@ -90,11 +74,15 @@ const Main = ({ getMatches, matches, matcheeId }) => {
   }
 
   // end of animation code
-
+  console.log('asd')
   return (
     <div className="swipePage">
       <div className="nav">
-        <Nav getMatches={getMatches} matches={matches} matcheeId={matcheeId} />
+        <Nav
+          viewMatchCard={viewMatchCard}
+          getMatches={getMatches}
+          matches={matches}
+        />
       </div>
       <div className="swipePg">
         <div className="swipeGrid">
