@@ -34,7 +34,26 @@ color: white;
   display: flex;
   flex-direction: column;
   width: 300px;
+  align-items: center;
 }
+
+.input {
+  border-radius: 20px;
+  background-color: #2a2c37;
+  border: none;
+  margin: 5px;
+  height: 30px;
+  color: white;
+}
+
+.button {
+  height: 30px;
+  width: 50px;
+  border-radius: 20px;
+  background-color: #2a2c37;
+  color: white;
+}
+
 .invisible {
   visibility: hidden;
 }
