@@ -1,9 +1,6 @@
 .home {
   display: flex;
   flex-direction: column;
-}
-
-body {
   background-image: url("https://i.imgur.com/52htTsl.jpg");
   background-size: cover;
   height: 100vh;
@@ -105,4 +102,5 @@ img {
   margin: -17px 18px 0 0;
   transform: skew(340deg);
 }
+
 
