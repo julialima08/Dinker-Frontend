@@ -23,10 +23,12 @@
 .userName {
   margin: 0;
   padding: 0 10px;
+  font-size: 15px;
+  font-weight: 300;
 }
 
 .userIcon {
-  background-color: white;
+  background-color: hsl(0, 0%, 0%, .5);
   border-radius: 50px;
 }
 
@@ -35,8 +37,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-image: linear-gradient(to right, #a37774 , #e88873);
+  background-image: linear-gradient(to right, #e55ae2 , #ee1908);
   padding: 10px 0 10px 0;
+  height: 60px;
 }
 
 .logoutButton, .postsButton, .swipeButton {
@@ -70,8 +73,8 @@
   display: flex;
   flex-direction: column;
   background-color: #17181e;
-  width: 350px;
-  height: 500px;
+  width: 400px;
+  height: 600px;
   color: white;
   border-radius: 20px;
   border: 2px solid #2a2c37;
@@ -96,6 +99,10 @@
   border-left: none;
   height: 44px;
   color: white;
+  font-size: 15px;
+  font-family: 'Figtree', sans-serif;
+  letter-spacing: .5px;
+  font-weight: 100;
 }
 
 .avatarMap, .selectAvatarButton {
@@ -113,7 +120,7 @@
 }
 
 .avatarMap {
-  width: 350px;
+  width: 400px;
   padding: 0 0 0 20px;
 }
 
@@ -122,14 +129,14 @@
 }
 
 .updateButtons {
-  width: 350px;
+  width: 400px;
   margin: 0;
   position: fixed;
   border-radius: 50px;
 }
 
 .submitButton1, .submitButton2 {
-  width: 175px;
+  width: 200px;
   height: 50px;
   background-color: black;
   color: white;
@@ -139,7 +146,7 @@
 
 .submitButton1 {
   border-radius: 20px 0 0 0;
-  color: #E88873;
+  color: #ec2c2c
 }
 
 .submitButton2 {
@@ -151,16 +158,23 @@
 }
 
 .deleteButton {
-  background-color: black;
   color: white;
   border: 1px solid #2a2c37;
-  height: 50px;
-  background-color: #E88873;
+  height: 45px;
+  background-image: linear-gradient(to right, #e55ae2 , #ee1908);
   border-radius: 50px;
-  width: 100px;
+  border: none;
+  width: 250px;
   margin: 0 0 20px 0;
+  text-align: center;
+  font-family: 'Figtree', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: .8px;
 }
 
 .formLabel {
-  padding: 0 0 20px 10px;
+  padding: 5px 0 8px 10px;
+  color: #94959d;
+  font-size: 13px;
 }
