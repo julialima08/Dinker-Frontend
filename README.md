@@ -64,7 +64,8 @@
 
 #### Matching page
 
-![Burrito cat](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FvXdkKTIzs9A%2Fmaxresdefault.jpg&f=1&nofb=1)
+![Burrito cat](https://ucarecdn.com/
+7ddf2850-d48d-4588-8f96-9e519852b363/)
 
 ---
 
