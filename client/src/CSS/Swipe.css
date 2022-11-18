@@ -1,3 +1,5 @@
+
+
 #root {
   overflow-x: hidden;
 }
@@ -23,8 +25,6 @@
   grid-column: 1;
   grid-row: 1;
   place-self: center;
-  /* display: flex;
-  flex-direction: column; */
   background-color: #17181e;
   width: 400px;
   height: 600px;
@@ -94,3 +94,24 @@
   transform: scale(1.2);
   transition: 0.1s;
 }
+
+#slide {
+  position: absolute;
+  left: -100px;
+  width: 100px;
+  height: 100px;
+  background: blue;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 2s;
+}
+
+@-webkit-keyframes slide {
+  100% { left: 0; }
+}
+
+@keyframes slide {
+  100% { left: 0; }
+}
+
