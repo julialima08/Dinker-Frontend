@@ -2,7 +2,6 @@ import '../CSS/Profile.css'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import 'animate.css'
 
 const ProfileCard = (props) => {
   const [user, setUser] = useState([])
