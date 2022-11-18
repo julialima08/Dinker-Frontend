@@ -140,18 +140,18 @@ const UpdateProfile = ({ getMatches, matches }) => {
                 id="skills"
                 value={formState.skills}
               >
-                <option value="HTML">HTML</option>
-                <option value="CSS">CSSL</option>
-                <option value="JavaScript">JavaScript</option>
+                <option value="html">html heathen</option>
+                <option value="css">css crusader</option>
+                <option value="js">javascript jammer</option>
                 <option value="react">react revolutionary</option>
-                <option value="MongoDB">mongo madness</option>
-                <option value="Express">express expressions</option>
-                <option value="PostgreSQL">postgres positivity</option>
-                <option value="Sequelize">Sequelize</option>
-                <option value="Auth">Auth</option>
-                <option value="Vue">Vue.jsL</option>
-                <option value="Python">Python</option>
-                <option value="Flask">Flask</option>
+                <option value="mongo">mongo madness</option>
+                <option value="express">express expressions</option>
+                <option value="postgresql">postgres positivity</option>
+                <option value="sequelize">sequelize sorceress</option>
+                <option value="auth">auth authority</option>
+                <option value="vue">vue visionary</option>
+                <option value="python">python purveyor</option>
+                <option value="flask">flask fiend</option>
               </select>
             </div>
             <div className="formDiv">

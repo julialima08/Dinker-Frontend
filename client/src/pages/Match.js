@@ -17,6 +17,7 @@ const Match = ({ getMatches, matches, viewMatchCard }) => {
             avatar={match.avatar}
             name={match.name}
             username={match.username}
+            skills={match.skills}
             onClick={() => viewMatchCard(match.id)}
           />
         ))}

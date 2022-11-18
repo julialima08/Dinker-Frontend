@@ -23,8 +23,8 @@ const MatchProfile = ({
         />
       </div>
       <div className="profile">
-        {selectedMatch ? (
-          <div className="profileGrid">
+        <div className="profileGrid">
+          {selectedMatch ? (
             <div className="profileCard">
               <div className="cardDivFront">
                 <div className="imageWrapper">
@@ -39,18 +39,13 @@ const MatchProfile = ({
                   <div className="skills">{selectedMatch.skills}</div>
                 </div>
               </div>
-              <img
-                className="moreInfo"
-                src="https://i.imgur.com/71LLr11.png"
-                alt=""
-              ></img>
               <div className="cardDivInfo">
                 <div className="userProjects">{selectedMatch.projects}</div>
                 <div className="userSocial">{selectedMatch.socialLinks}</div>
               </div>
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </div>
     </div>
   )
