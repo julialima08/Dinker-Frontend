@@ -39,17 +39,13 @@ const ProfileCard = (props) => {
           {props.user.id === user.id ? null : (
             <div className="swipeButtons">
               <img
-                className={
-                  props.leftActive ? 'animate__bounceOutLeft' : 'swipeLeft'
-                }
+                className="swipeLeft"
                 src="https://i.imgur.com/3J8rOeY.png"
                 alt=""
                 onClick={props.swipeLeft}
               />
               <img
-                className={
-                  props.RightActive ? 'animate__bounceOutRight' : 'swipeRight'
-                }
+                className="swipeRight"
                 src="https://i.imgur.com/k6Xb8Sy.png"
                 alt=""
                 onClick={props.swipeRight}

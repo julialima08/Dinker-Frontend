@@ -3,9 +3,9 @@ import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import { createPost } from '../services/Auth'
 // import ReactCSSTransitionGroup from 'react-transition-group'
-import styled from 'styled-components'
-import useRainbow from './use-rainbow.hook'
-import MagicRainbowButton from './MagicRainbowButton'
+// import styled from 'styled-components'
+// import useRainbow from './use-rainbow.hook'
+// import MagicRainbowButton from './MagicRainbowButton'
 
 const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
   // useEffect(() => {
