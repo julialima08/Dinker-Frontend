@@ -35,36 +35,27 @@ const ProfileCard = (props, { swipeRight }) => {
             </div>
             <h2 className="userProfileAka">aka {props.user.name}</h2>
           </div>
+          {props.user.id === user.id ? null : (
+            <div className="swipeButtons">
+              <img
+                className="swipeLeft"
+                src="https://i.imgur.com/3J8rOeY.png"
+                alt=""
+              />
+              <img
+                className="swipeRight"
+                src="https://i.imgur.com/k6Xb8Sy.png"
+                alt=""
+                onClick={props.swipeRight}
+              />
+            </div>
+          )}
           <div className="cardDivInfo">
-            <div className="userProjects">
-              My favorite project:{props.user.projects}
-            </div>
-            <div className="userSocial">
-              Social media:{props.user.socialLinks}
-            </div>
+            <div className="userProjects">PROJECT {props.user.projects}</div>
+            <div className="userSocial">SOCIAL {props.user.socialLinks}</div>
           </div>
         </div>
       </div>
-      {props.user.id === user.id ? null : (
-        <div className="swipeButtons">
-          <img
-            className="swipeLeft"
-            src="https://i.imgur.com/TwVQBFx.png"
-            alt=""
-          />
-          <img
-            className="moreInfo"
-            src="https://i.imgur.com/71LLr11.png"
-            alt=""
-          ></img>
-          <img
-            className="swipeRight"
-            src="https://i.imgur.com/OgR2xvL.png"
-            alt=""
-            onClick={props.swipeRight}
-          />
-        </div>
-      )}
     </div>
   )
 }
