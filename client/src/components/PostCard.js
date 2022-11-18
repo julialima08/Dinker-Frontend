@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+let userId = localStorage.getItem('id')
 
 const PostCard = (props) => {
   const postCardStyle = {
     display: 'inlineBlock',
-    // fontFamily: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
     fontSize: '12px',
     fontWeight: 'bold',
     lineHeight: '16px',
@@ -26,25 +26,24 @@ const PostCard = (props) => {
     lineHeight: '20px'
   }
 
-  const userz = props.users
+  const [userInfo, setUserInfo] = useState(null)
+  const [userAvatar, setUserAvatar] = useState(null)
+  const getUsers = async () => {
+    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
+    setUserAvatar(response.data.avatar)
+    setUserInfo(response.data.username)
+  }
+  useEffect(() => {
+    getUsers()
+  }, [])
 
-  // function matchUsernameToPost(age) {
-  //   return age > document.getElementById('ageToCheck').value
-  // }
-
-  // function myFunction() {
-  //   document.getElementById('demo').innerHTML = ages.filter(checkAge)
-  // }
-  let usernames = props.users.map(({ username }) => username)
-  // console.log(usernames)
-
-  // console.log(userz)
   return (
     <div className="PostCard" style={postCardStyle}>
+      <img src={userAvatar}></img>
+      <p>{userInfo}</p>
       <h1 style={hOne}>{`${props.posts.title}`}</h1>
       <p style={pStyle}>{`${props.posts.body}`}</p>
       <p style={pStyle}>{`${props.posts.skills}`}</p>
-      <p style={pStyle}>{`${props.posts.creatorId}`}</p>
     </div>
   )
 }

@@ -48,8 +48,7 @@ const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
     width: '67vw',
     float: 'right'
   }
-  // usernamez = Object.values()
-  // console.log(users)
+  // console.log(getPosts)
 
   return (
     <div className="PostsPage">

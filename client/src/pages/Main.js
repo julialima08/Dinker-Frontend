@@ -5,10 +5,7 @@ import { BASE_URL } from '../globals'
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import axios from 'axios'
 import SwipeCard from '../animation code/swipeAnimation'
-console.log('banan')
 const Main = ({ getMatches, matches, viewMatchCard }) => {
-  console.log('appl')
-
   const [users, setUsers] = useState([])
   const [currentIndex, setCurrentIndex] = useState(users.length - 1)
   const [lastDirection, setLastDirection] = useState()
