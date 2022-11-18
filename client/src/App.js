@@ -35,6 +35,7 @@ function App() {
   const getPosts = async () => {
     const res = await axios.get(`${BASE_URL}/api/posts`)
     setPosts(res.data)
+    // console.log(res.data)
   }
   useEffect(() => {
     const token = localStorage.getItem('token')

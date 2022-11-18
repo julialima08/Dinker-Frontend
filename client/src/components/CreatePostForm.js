@@ -42,7 +42,9 @@ const CreatePostForm = ({ getPosts, posts }) => {
     <div>
       <h2 style={postformheader}>
         <img src={userAvatar} alt="no avatar"></img>
-        <div style={postformheadertext}>What's on your mind, {userInfo} ?</div>
+        <div style={postformheadertext}>
+          Hey {userInfo}, need a dink to collaborate with?
+        </div>
       </h2>
       <form onSubmit={handleSubmit}>
         <input
