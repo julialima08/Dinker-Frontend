@@ -2,7 +2,9 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { useState, useEffect } from 'react'
 import { createPost } from '../services/Auth'
-import Posts from '../pages/Posts'
+// import ReactCSSTransitionGroup from 'react-transition-group'
+import styled from 'styled-components'
+import useRainbow from './use-rainbow.hook'
 
 const CreatePostForm = ({ getPosts, posts, userAvatar, username }) => {
   // useEffect(() => {

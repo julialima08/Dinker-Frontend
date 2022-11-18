@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+
 const avatars = [
   { name: '1', url: 'https://i.imgur.com/aWrwP5x.png' },
   { name: '2', url: 'https://i.imgur.com/7RvwMJZ.png' },
