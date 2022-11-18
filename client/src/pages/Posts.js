@@ -1,3 +1,4 @@
+import MagicRainbowButton from '../components/MagicRainbowButton'
 import PostCard from '../components/PostCard'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -37,11 +38,10 @@ const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
     fontSize: '12px',
     fontWeight: 'bold',
     lineHeight: '16px',
-    borderColor: '#eee #ddd #bbb',
-    borderRadius: '5px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.15)',
+    // borderRadius: '5px',
+    // borderStyle: 'solid',
+    // borderWidth: '1px',
+    // boxShadow: '0 1px 3px rgba(0, 0, 0, 0.15)',
     margin: '0px auto 20px auto',
     padding: '0 16px 16px 16px',
     maxWidth: '468px',
@@ -53,7 +53,23 @@ const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
     width: '67vw',
     float: 'right'
   }
-
+  const btn = {
+    display: 'flex',
+    justifyContent: 'center',
+    // fontSize: '12px',
+    // fontWeight: 'bold',
+    // lineHeight: '16px',
+    // borderColor: '#eee #ddd #bbb',
+    // borderRadius: '5px',
+    // borderStyle: 'solid',
+    // borderWidth: '1px',
+    // boxShadow: '0 1px 3px rgba(0, 0, 0, 0.15)',
+    // margin: '0 auto 20px auto',
+    // padding: '0 16px 16px 16px',
+    // maxWidth: '568px',
+    // textAlign: 'left'
+    marginBottom: '20px'
+  }
   return (
     <div className="PostsPage">
       <div className="nav" style={postNavStyle}>
@@ -65,13 +81,17 @@ const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
       </div>
       {posts ? (
         <div className="postGrid" style={postgridstyle}>
-          <div className="createpost" style={addPost}>
-            <CreatePostForm
-              username={username}
-              userAvatar={userAvatar}
-              getPosts={getPosts}
-              posts={posts}
-            />
+          <div style={btn}>
+            <MagicRainbowButton>
+              <div className="createpost" style={addPost}>
+                <CreatePostForm
+                  username={username}
+                  userAvatar={userAvatar}
+                  getPosts={getPosts}
+                  posts={posts}
+                />
+              </div>
+            </MagicRainbowButton>
           </div>
           <div className="futureAddSpace" style={futureAddSpaceStyle}>
             <h5>future add space</h5>
