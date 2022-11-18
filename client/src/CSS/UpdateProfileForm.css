@@ -190,3 +190,7 @@
 .logoutButton, .postsButton, .swipeButton {
   margin: 5px;
 }
+
+.userInfoButtons {
+  display: flex;
+}

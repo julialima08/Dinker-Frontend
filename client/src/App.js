@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from './globals'
 import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
 function App() {
   let navigate = useNavigate()

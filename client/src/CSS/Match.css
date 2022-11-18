@@ -15,6 +15,7 @@
 }
 
 .matchImage {
+  margin: 20px 0 0 0;
   height: 100%;
   width: 100%;
 }
@@ -30,6 +31,7 @@
   margin: 0px 0 -1px 0;
   text-align: left;
   width: 110px;
+  font-size: 15px;
 }
 
 .matchesMap {
@@ -49,11 +51,14 @@
 }
 
 .matchSkills {
-  color: #94959d;
+  color: white;
+  /* color: #94959d; */
   margin: 0;
   font-weight: 200;
   text-align: left;
   margin: 0 0 0 15px;
+  font-size: 13px;
+  padding: 0 0 10px 0;
 }
 
 .tinyHeartDiv {

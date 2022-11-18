@@ -81,7 +81,7 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
           matches={matches}
         />
       </div>
-      <div classname="swipeTest">
+      <div className="swipeTest">
         <div className="swipePg">
           <div className="swipeGrid">
             <div className="swipeCard">
