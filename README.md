@@ -62,9 +62,9 @@
 
 ---
 
-#### Matching page
+#### Home Page
 
-![Burrito cat](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FvXdkKTIzs9A%2Fmaxresdefault.jpg&f=1&nofb=1)
+![dinker home](https://ucarecdn.com/7ddf2850-d48d-4588-8f96-9e519852b363/)
 
 ---
 
@@ -80,6 +80,8 @@
 
 #### Profile Characters: [Pixel Avatars](https://www.avatarsinpixels.com/chibi/clothing/Pants)
 
-#### Color Palettes: [Colors](https://coolors.co/fa8334-fffd77-ffe882-388697-271033)
+#### Color Palettes: [Coolors](https://coolors.co/fa8334-fffd77-ffe882-388697-271033)
+
+#### Magical Rainbow Gradients: [Josh W Comeau](https://twitter.com/JoshWComeau)
 
 ---
