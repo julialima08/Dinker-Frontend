@@ -4,7 +4,7 @@ import '../CSS/Swipe.css'
 import { BASE_URL } from '../globals'
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import axios from 'axios'
-import SwipeCard from '../animation code/swipeAnimation'
+// import SwipeCard from '../animation code/swipeAnimation'
 
 const Main = ({ getMatches, matches, viewMatchCard }) => {
   const [users, setUsers] = useState([])
@@ -37,47 +37,47 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
 
   // credit for swipe animation: github- 3DJakob
 
-  const outOfFrame = (id, idx) => {
-    currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
-  }
-  const currentIndexRef = useRef(currentIndex)
+  // const outOfFrame = (id, idx) => {
+  //   currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
+  // }
+  // const currentIndexRef = useRef(currentIndex)
 
-  const childRefs = useMemo(
-    () =>
-      Array(users.length)
-        .fill(0)
-        .map((i) => React.createRef()),
-    []
-  )
+  // const childRefs = useMemo(
+  //   () =>
+  //     Array(users.length)
+  //       .fill(0)
+  //       .map((i) => React.createRef()),
+  //   []
+  // )
 
-  const updateCurrentIndex = (val) => {
-    setCurrentIndex(val)
-    currentIndexRef.current = val
-  }
+  // const updateCurrentIndex = (val) => {
+  //   setCurrentIndex(val)
+  //   currentIndexRef.current = val
+  // }
 
-  const canGoBack = currentIndex < users.length - 1
+  // const canGoBack = currentIndex < users.length - 1
 
-  const canSwipe = currentIndex >= 0
+  // const canSwipe = currentIndex >= 0
 
-  // set last direction and decrease current index
-  const swiped = (direction, userToRemove, index) => {
-    setLastDirection(direction)
-    updateCurrentIndex(index - 1)
-  }
+  // // set last direction and decrease current index
+  // const swiped = (direction, userToRemove, index) => {
+  //   setLastDirection(direction)
+  //   updateCurrentIndex(index - 1)
+  // }
 
-  const swipe = async (dir) => {
-    if (canSwipe && currentIndex < users.length) {
-      await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
-    }
-  }
+  // const swipe = async (dir) => {
+  //   if (canSwipe && currentIndex < users.length) {
+  //     await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
+  //   }
+  // }
 
-  // increase current index and show card
-  const goBack = async () => {
-    if (!canGoBack) return
-    const newIndex = currentIndex + 1
-    updateCurrentIndex(newIndex)
-    await childRefs[newIndex].current.restoreCard()
-  }
+  // // increase current index and show card
+  // const goBack = async () => {
+  //   if (!canGoBack) return
+  //   const newIndex = currentIndex + 1
+  //   updateCurrentIndex(newIndex)
+  //   await childRefs[newIndex].current.restoreCard()
+  // }
 
   // end of animation code
 
