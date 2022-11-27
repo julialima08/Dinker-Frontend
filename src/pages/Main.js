@@ -97,22 +97,22 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
               {users
                 .sort(() => 0.5 - Math.random())
                 .map((user, index) => (
-                  <SwipeCard
-                    ref={childRefs[index]}
-                    className="swipe"
-                    key={user.id}
-                    onSwipe={(dir) => swiped(dir, user.id, index)}
-                    onCardLeftScreen={() => outOfFrame(user.id, index)}
-                  >
-                    <div className="swipeCard2">
-                      <ProfileCard
-                        user={user}
-                        key={user.id}
-                        swipeRight={() => swipeRight(user.id, index)}
-                        swipeLeft={() => swipeLeft()}
-                      />
-                    </div>
-                  </SwipeCard>
+                  // <SwipeCard
+                  //   ref={childRefs[index]}
+                  //   className="swipe"
+                  //   key={user.id}
+                  //   onSwipe={(dir) => swiped(dir, user.id, index)}
+                  //   onCardLeftScreen={() => outOfFrame(user.id, index)}
+                  // >
+                  <div className="swipeCard2">
+                    <ProfileCard
+                      user={user}
+                      key={user.id}
+                      swipeRight={() => swipeRight(user.id, index)}
+                      swipeLeft={() => swipeLeft()}
+                    />
+                  </div>
+                  // </SwipeCard>
                 ))}
             </div>
           </div>
