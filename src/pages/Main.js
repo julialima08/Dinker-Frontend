@@ -2,14 +2,12 @@ import Nav from '../components/Nav'
 import ProfileCard from '../components/ProfileCard'
 import '../CSS/Swipe.css'
 import { BASE_URL } from '../globals'
-import React, { useState, useEffect, useMemo, useRef } from 'react'
+import React, { useState, useEffect} from 'react'
 import axios from 'axios'
-// import SwipeCard from '../animation code/swipeAnimation'
+
 
 const Main = ({ getMatches, matches, viewMatchCard }) => {
   const [users, setUsers] = useState([])
-  const [currentIndex, setCurrentIndex] = useState(users.length - 1)
-  const [lastDirection, setLastDirection] = useState()
   const [rightActive, setRightActive] = useState(false)
   const [leftActive, setLeftActive] = useState(false)
 
