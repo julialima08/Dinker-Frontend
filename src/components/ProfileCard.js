@@ -9,7 +9,7 @@ const ProfileCard = (props) => {
   let userId = localStorage.getItem('id')
 
   const getProfile = async () => {
-    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
+    const response = await axios.get(`/api/users/${userId}`)
     setUser(response.data)
   }
 

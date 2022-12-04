@@ -12,7 +12,7 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   const [leftActive, setLeftActive] = useState(false)
 
   const getUsers = async () => {
-    const response = await axios.get(`${BASE_URL}/api/users`)
+    const response = await axios.get(`/api/users`)
     setUsers(response.data)
   }
 
@@ -23,7 +23,7 @@ const Main = ({ getMatches, matches, viewMatchCard }) => {
   let userId = localStorage.getItem('id')
 
   const swipeRight = async (id, idx, e) => {
-    await axios.post(`${BASE_URL}/api/users/match/${userId}`, { matchId: id })
+    await axios.post(`/api/users/match/${userId}`, { matchId: id })
     setRightActive(true)
     getMatches()
     setRightActive(false)

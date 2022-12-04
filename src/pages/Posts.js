@@ -11,7 +11,7 @@ const Posts = ({ getMatches, matches, viewMatchCard, getPosts, posts }) => {
   const [username, setUsername] = useState(null)
   const [userAvatar, setUserAvatar] = useState(null)
   const getUsers = async () => {
-    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
+    const response = await axios.get(`/api/users/${userId}`)
     setUserAvatar(response.data.avatar)
     setUsername(response.data.username)
   }

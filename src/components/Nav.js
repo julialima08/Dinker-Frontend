@@ -11,7 +11,7 @@ const Nav = ({ setUserId, matches, getMatches, viewMatchCard }) => {
   const getUserInfo = async (data) => {
     let userId = localStorage.getItem('id')
 
-    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
+    const response = await axios.get(`/api/users/${userId}`)
     setUserInfo(response.data)
   }
 

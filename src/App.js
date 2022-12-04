@@ -26,12 +26,12 @@ function App() {
   const viewMatchCard = async (id) => {
     navigate(`/users/${id}`)
     try {
-      const res = await axios.get(`${BASE_URL}/api/users/${id}`)
+      const res = await axios.get(`/api/users/${id}`)
       setSelectedMatch(res.data)
     } catch (error) {}
   }
   const getPosts = async () => {
-    const res = await axios.get(`${BASE_URL}/api/posts`)
+    const res = await axios.get(`/api/posts`)
     setPosts(res.data)
   }
   useEffect(() => {
@@ -45,7 +45,7 @@ function App() {
 
   const getMatches = async () => {
     const response = await axios.get(
-      `${BASE_URL}/api/users/usermatches/${userId}`
+      `/api/users/usermatches/${userId}`
     )
     setMatches(response.data.matchees)
   }

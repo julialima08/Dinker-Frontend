@@ -13,7 +13,7 @@ const Profile = ({ getMatches, matches, viewMatchCard }) => {
 
   const getProfile = async () => {
     let userId = localStorage.getItem('id')
-    const response = await axios.get(`${BASE_URL}/api/users/${userId}`)
+    const response = await axios.get(`/api/users/${userId}`)
     setUser(response.data)
   }
 
